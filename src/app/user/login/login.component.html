@@ -1,0 +1,21 @@
+<body>
+    <div  class="form">
+     <h1>login</h1>
+     <div class="login">
+         <input type="text" name="username" placeholder="username" id="username"  [(ngModel)]="userName">
+      <input type="password" name="password" placeholder="password" id="password" [(ngModel)]="password">
+      <button type="button" (click)="getUser()"> Login IN </button>
+     </div>
+     <div class="suggest">  
+       <div>
+         <input type="checkbox" checked>
+         <label id="remember">Remember Me</label>
+        </div>
+        <div class="forgot">
+         <span>Forgot Password?</span>
+        </div>
+     </div>
+         <div> New User<a href="./register"> Sign Up</a></div>
+       <div class="text-danger p-3 h5"> {{msg}}</div>
+    </div>
+</body>

@@ -1,0 +1,62 @@
+
+<body class="bg-info"> 
+    <div class="row">
+    <img src="/assets/images/register/pexels-deneen-lt-1058401.jpg" alt="" class=" w-25 vh-100 col-auto">
+          <div action="" class=" w-75 rounded  col bg-info">
+            <h1 class="text-primary text-center">Register</h1>
+                       <div class="row p-3">
+                        <div class="col-3">Firstname</div>
+                        <div class="col-auto"><input type="text" class="form-control"[(ngModel)]='firstName'></div>
+                       </div>
+                       <div class="row p-3">
+                        <div class="col-3">Lastname </div>
+                        <div class="col-auto"><input type="text" class="form-control" [(ngModel)]="lastName"></div>
+                       </div>
+                       <div class="row p-3">
+                        <div class="col-3">Gender</div>
+                        <div class="col-auto">
+                            <input type="radio" name="gender" value="male" class="form-check-input" [(ngModel)]="gender"> -male <br>
+                            <input type="radio" name="gender" value="female" class="form-check-input" [(ngModel)]="gender">-female <br>
+                            <input type="radio" name="gender" value="others"class="form-check-input" [(ngModel)]="gender">-others <br>
+                        </div>
+                       </div>
+                       <div class="row p-3">
+                        <div class="col-3">phoneNumber</div>
+                        <div class="col-auto"><input type="number" class="form-control" [(ngModel)]="phoneNum"></div>
+                       </div>
+                       <div class="row p-3">
+                        <div class="col-3">EmailId</div>
+                        <div class="col-auto"><input type="email" class="form-control" [(ngModel)]="email"></div>
+                       </div>
+                       <div class="row p-3">
+                        <div class="col-3">Address</div>
+                        <div class="col-auto"><textarea name="address" id="" cols="40" rows="3" [(ngModel)]="address"></textarea></div>
+                       </div>
+                       <div class="row p-3">
+                        <div class="col-3">password</div>
+                        <div class="col-auto"><input type="password" class="form-control"></div>
+                       </div>
+                       <div class="row p-3">
+                        <div class="col-3">Confirm password</div>
+                        <div class="col-auto"><input type="password" class="form-control" [(ngModel)]="password"></div>
+                       </div>
+                       <div class="row p-3">
+                        <div class="col-3">Select details</div>
+                        <div class="col-auto">
+                        <select name="details" id="details" class="form-control" [(ngModel)]="userStatus">
+                            <option value=""> ..select..</option>
+                            <option value="farmer">farmer</option>
+                            <option value="customer">customer</option>
+                            <option value="employee">employee</option>
+                        </select></div>
+                       </div>
+                       <div class="row justify-content-center pl-5">
+                        <div class="col-auto"><input type="radio">The given details is correct</div>
+                         <div class="col-auto"><button type="button" class="btn btn-primary" (click)="addUserDetails()">save</button></div>
+                       </div>      
+                      </div>
+        </div>
+        <button type="button " (click)="deleteUserDetail()">delete</button>
+</body>
+
+
