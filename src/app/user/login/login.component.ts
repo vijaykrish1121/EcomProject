@@ -13,7 +13,6 @@ export class LoginComponent {
   msg:string=''
   details:any[]=[]
   constructor( private apiService:ApiService,private router:Router){}
-
     getUser(){
       if(this.userName!='' && this.password!=''){
        this.apiService.userurl.subscribe((response:any) =>{
@@ -21,6 +20,9 @@ export class LoginComponent {
         this.details=response
         for(let detail of this. details){
         if(this.userName== detail.userName && this.password==detail.password){
+          sessionStorage.setItem("userName",this.userName)
+          sessionStorage.setItem("password",this.password)
+          this.LocalSession()
           this.router.navigate(['/'])
     }
     else
@@ -32,5 +34,10 @@ export class LoginComponent {
                       }
                       else
                          this.msg='username and password is missing'
+                    }
+
+                    LocalSession(){
+                      localStorage.setItem("userName",this.userName)
+                      localStorage.setItem("password",this.password)
                     }
 }

@@ -8,12 +8,16 @@ import { HomeComponent } from './user/home/home.component';
 import { FormsModule } from '@angular/forms';
 import {HttpClientModule} from '@angular/common/http';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { NavBarComponent } from './user/navBar/navBar.component';
+import { LogoutComponent } from './user/logout/logout.component';
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
     RegisterComponent,
-    HomeComponent
+    HomeComponent,
+    NavBarComponent,
+    LogoutComponent
   ],
   imports: [
     BrowserModule,
