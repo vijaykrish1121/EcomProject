@@ -10,6 +10,19 @@ import {HttpClientModule} from '@angular/common/http';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { NavBarComponent } from './user/navBar/navBar.component';
 import { LogoutComponent } from './user/logout/logout.component';
+import { ContactUsComponent } from './user/contactUs/contactUs.component';
+import { FooterComponent } from './user/footer/footer.component';
+import { SellerRegistrationComponent } from './Seller/seller-registration/seller-registration.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {MatStepperModule} from '@angular/material/stepper';
+import {MatInputModule} from '@angular/material/input';
+import {MatFormFieldModule} from '@angular/material/form-field';
+import {ReactiveFormsModule} from '@angular/forms';
+import { AddproductComponent } from './Seller/addproduct/addproduct.component';
+import { AdminRegisterComponent } from './Admin/admin-register/admin-register.component';
+import { DashboardComponent } from './Seller/dashboard/dashboard.component';
+
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -17,14 +30,27 @@ import { LogoutComponent } from './user/logout/logout.component';
     RegisterComponent,
     HomeComponent,
     NavBarComponent,
-    LogoutComponent
+    LogoutComponent,
+    ContactUsComponent,
+    FooterComponent,
+    SellerRegistrationComponent,
+    AddproductComponent,
+    AdminRegisterComponent,
+    DashboardComponent,
+    
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
     HttpClientModule,
-    NgbModule
+    NgbModule,
+    BrowserAnimationsModule,
+    MatStepperModule,
+    MatInputModule,
+    MatFormFieldModule,
+    ReactiveFormsModule
+    
     
   ],
   providers: [],

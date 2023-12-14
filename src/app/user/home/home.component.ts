@@ -8,5 +8,5 @@ import { ApiService } from 'src/app/service/api.service';
 })
 export class HomeComponent {
   constructor( private apiService:ApiService,private router:Router){}
- 
+  showCarousel=true;
 }

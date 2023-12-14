@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
+import { ApiUrls } from 'src/app/common/apiUrls';
 import { ApiService } from 'src/app/service/api.service';
-
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -15,29 +15,22 @@ export class LoginComponent {
   constructor( private apiService:ApiService,private router:Router){}
     getUser(){
       if(this.userName!='' && this.password!=''){
-       this.apiService.userurl.subscribe((response:any) =>{
+       this.apiService.getApiData(ApiUrls.userApi).subscribe((response:any) =>{
         console.log(response);
         this.details=response
         for(let detail of this. details){
         if(this.userName== detail.userName && this.password==detail.password){
-          sessionStorage.setItem("userName",this.userName)
-          sessionStorage.setItem("password",this.password)
-          this.LocalSession()
+          sessionStorage.setItem("user",this.userName)
           this.router.navigate(['/'])
+          this.apiService.loginstatus=true
     }
     else
       this.msg='username or password is incorrect' 
   }
        } 
        )
-      
                       }
                       else
                          this.msg='username and password is missing'
-                    }
-
-                    LocalSession(){
-                      localStorage.setItem("userName",this.userName)
-                      localStorage.setItem("password",this.password)
                     }
 }

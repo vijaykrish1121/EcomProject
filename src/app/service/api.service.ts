@@ -5,19 +5,29 @@ import { Injectable } from '@angular/core';
   providedIn: 'root'
 })
 export class ApiService {
-  url='https://retoolapi.dev/tzfucZ/data'
-  userurl=this.getDetail()
+ 
+  loginstatus:boolean=false
   constructor(private httpclient:HttpClient) {}
- getDetail(){
-return  this.httpclient.get(this.url)
+ getApiData(url:string){
+return  this.httpclient.get(url)
  }
-  addUserDetail(url:string,data:any){
+  postAPiData(url:string,data:any){
      return  this.httpclient.post(url,data)
   }
-  updateUserDetail(url:String,data:any){
+  putApiData(url:String,data:any){
     return this.httpclient.put(data,url)
   }
-  deleteUserDetail(url:string,data:any){
+  deleteApiData(url:string,data:any){
     return this.httpclient.delete(url,data)
   }
-}
+//   addSellerPersonalDetails(SellerPersonalDetailsUrl:string,data:any){
+//          return this.httpclient.post(SellerPersonalDetailsUrl,data)
+//   }
+//   addSellerCompanyDetails(SellerCompanyDetailsUrl:string,data:any){
+//     return this.httpclient.post(SellerCompanyDetailsUrl,data)
+// }
+// addSellerBankDetails(SellerBankDetailsUrl:string,data:any){
+//   return this.httpclient.post(SellerBankDetailsUrl,data)
+// }
+  }
+

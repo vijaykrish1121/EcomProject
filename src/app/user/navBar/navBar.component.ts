@@ -7,15 +7,20 @@ import { ApiService } from 'src/app/service/api.service';
   styleUrls: ['./navBar.component.scss']
 })
 export class NavBarComponent {
-  constructor(private apiservice:ApiService,private router:Router){
+    
+  constructor(public apiservice:ApiService,private router:Router){
 
   }
 logout() {
   sessionStorage.removeItem('userName')
-  sessionStorage.removeItem('password')
+   this.apiservice.loginstatus= false
 }
-  public isCollapsed = true;
+  login(){
+    this.router.navigate(['login'])
+    this.apiservice.loginstatus=true
+  }
 
+  public isCollapsed = true;
   checkSession(){
     let val = sessionStorage.getItem('userName') || ""
     if(val==''){

@@ -1,1 +1,30 @@
-<app-nav-bar></app-nav-bar>
+<header>
+    <app-nav-bar></app-nav-bar>
+</header>
+   <body>
+     
+      <div class=" rounded">
+    <ngb-carousel *ngIf="showCarousel" #carousel [interval]="5000" >
+        <ng-template ngbSlide>
+          <div style="height: 300px;" ><img src="../../../assets/images/slides/selling-online.jpg" alt="" class="" width="100%">
+          </div>
+        </ng-template>
+        <ng-template ngbSlide>
+          <div   style="height: 300px;" ><img src="../../../assets/images/slides/HireSalesGraphic.jpg" alt="" class="" width="100%" >
+          </div>
+        </ng-template>
+      </ngb-carousel>
+    </div>
+    <div  class="h-25 w-50">
+      <div class="card  text-center-end text-white">
+        <img src="/assets/images/home/card-image.jpg" alt="" class="card-img"   > 
+        <div class="card-body mt-5 card-img-overlay">
+          <h5 class="card-title">Special Selling Ecommerce</h5>
+          <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+          <a href="#" class="btn btn-primary btn-lg">Start Now</a>
+        </div>
+      </div>
+    </div>
+   </body>
+
+    <app-footer></app-footer>

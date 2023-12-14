@@ -1,0 +1,41 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container-fluid p-4">
+      <a class="navbar-brand">Navbar</a>
+      <button class="navbar-toggler" type="button" (click)="isCollapsed = !isCollapsed" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+    aria-controls="navbarSupportedContent" [attr.aria-expanded]="!isCollapsed" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+</button>
+<div class="collapse navbar-collapse" id="navbarSupportedContent" [ngbCollapse]="isCollapsed" >
+        <ul class="navbar-nav mx-auto">
+          <li class="nav-item px-5">
+            <a class="nav-link active" aria-current="page">Home</a>
+          </li>
+          
+          <li class="nav-item px-5">
+            <a class="nav-link" routerLink="/contactUs" >Contact-Us</a>
+          </li>
+          <li class="nav-item dropdown px-5" ngbDropdown>
+            <a class="nav-link dropdown-toggle"  id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false" ngbDropdownToggle>
+              Dropdown link
+            </a>
+            <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink" ngbDropdownMenu>
+              <li ngbDropdownItem><a class="dropdown-item" >Action</a></li>
+              <li ngbDropdownItem> <a class="dropdown-item" >Another action</a></li>
+              <li ngbDropdownItem><a class="dropdown-item">Something else here</a></li>
+            </ul>
+          </li>
+          <li class="nav-item dropdown px-5" ngbDropdown>
+            <a class="nav-link dropdown-toggle"  id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false" ngbDropdownToggle>
+              Dropdown link
+            </a>
+            <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink" ngbDropdownMenu>
+              <li ngbDropdownItem><a class="dropdown-item" >Action</a></li>
+              <li ngbDropdownItem> <a class="dropdown-item" >Another action</a></li>
+              <li ngbDropdownItem><a class="dropdown-item">Something else here</a></li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+   

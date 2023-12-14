@@ -1,0 +1,177 @@
+
+<!-- <button mat-raised-button (click)="isLinear = !isLinear" id="toggle-linear">
+    {{!isLinear ? 'Enable linear mode' : 'Disable linear mode'}}
+  </button> -->
+  <body>
+  <mat-stepper *ngIf="!isSellerFormSubmitted" #stepper class="container">
+   <form [formGroup]="myFormGroup" (ngSubmit)="addSellerDetails()" >
+   <mat-step [stepControl]="myFormGroup" >
+     
+      <div formGroupName="firstFormGroup">
+          <ng-template matStepLabel>Fill out your Personal</ng-template>
+       <!-- <mat-form-field>
+         <mat-label>Name</mat-label>
+         <input matInput placeholder="Last name, First name" formControlName="firstCtrl" >
+       </mat-form-field> -->
+       <div class="d-flex justify-content-center m-5">
+           <div action="" class="border p-5 text-dark" id="formgroup1">
+                       <h2 class="text-center text-primary">Personal Details</h2>
+                   <div class="row p-3 ml-5">
+                      <div class="col-sm-3">Full Name :</div>
+                      <div class="col-sm-10"><input type="text" class="form-control" name="fullName" formControlName="fullName" required >
+                        <div *ngIf="myFormGroup.get('firstFormGroup.fullName').hasError('required') && (myFormGroup.get('firstFormGroup.fullName').dirty || myFormGroup.get('firstFormGroup.fullName').touched)">
+                           Name is required.
+                         </div>
+                     </div>
+                   </div>
+                   <div class="row p-3">
+                      <div class="col-sm-3">Email :</div>
+                      <div class="col-sm-10"><input type="email" class="form-control" name="email"  formControlName="email" required></div>
+                   </div>
+                   <div class="row p-3">
+                      <div class="col-sm-3">Password :</div>
+                      <div class="col-sm-10"><input type="password" class="form-control" name="password" formControlName="password" required ></div>
+                   </div>
+                   <div class="row p-3">
+                      <div class="col-sm-3">Phone Num :</div>
+                      <div class="col-sm-10"><input type="number" class="form-control" name="phoneNum"  formControlName="phoneNum" required></div>
+                   </div>
+                   <div class="row p-3">
+                      <div class="col-sm-3">Address :</div>
+                      <div class="col-sm-10"><textarea name="" id="address" cols="40" rows="3" name="address"  formControlName="address" required></textarea></div>
+                   </div>
+               </div>
+              </div> 
+       <div class="d-flex justify-content-center">
+         <button mat-button matStepperNext class="btn btn-primary">Next</button>
+       </div>
+      </div>
+   </mat-step>
+   <mat-step [stepControl]="myFormGroup" label="Fill out your Company address">
+      <div  formGroupName="secondFormGroup">
+       <!-- <mat-form-field>
+         <mat-label>Address</mat-label>
+         <input matInput formControlName="secondCtrl" placeholder="Ex. 1 Main St, New York, NY"
+                >
+       </mat-form-field> -->
+       <div class="d-flex justify-content-center m-5">
+           <div  class="border  text-dark p-5" id="formgroup2">
+                       <h2 class="text-center text-primary">Company Details</h2>
+                   <div class="row p-3 ml-5">
+                      <div class="col-sm-4">Company Name :</div>
+                      <div class="col-sm-10"><input type="text" class="form-control" name="companyName" formControlName="companyName" required></div>
+                   </div>
+                   <div class="row p-3">
+                      <div class="col-sm-4">Company email :</div>
+                      <div class="col-sm-10"><input type="email" class="form-control" name="companyEmail"   formControlName="companyEmail"  required></div>
+                   </div>
+                   <div class="row p-3">
+                      <div class="col-sm-4">Company Address:</div>
+                      <div class="col-sm-10"><input type="text" class="form-control" name="companyAddress"  formControlName="companyAddress"  required></div>
+                   </div>
+                   <div class="row p-3">
+                      <div class="col-sm-4">Phone Num :</div>
+                      <div class="col-sm-10"><input type="number" class="form-control" name="companyPhoneNum"  formControlName="companyPhoneNum"  required></div>
+                   </div>
+                   <div class="row p-3">
+                     <div class="col-sm-4">GST Number :</div>
+                     <div class="col-sm-10"><input type="text" class="form-control" name="gstNum" formControlName="gstNum"  required></div>
+                  </div>
+                   <div  class="row">
+                    <div class="col"> 
+                       <div class="row p-3">
+                    <div class="col-sm-3">Country:</div>
+                    <div class="col-sm-10"><select name="country" id="country" class="form-control form-select" name="country" formControlName="country"  required>
+                       <option value="1">1</option>
+                       <option value="2">2</option>
+                       <option value="3">3</option>
+                       <option value="4">4</option>
+                       <option value="5">5</option>
+                       <option value="6">6</option>
+                       <option value="7">7</option>
+                       <option value="8">8</option>
+                    </select></div>
+                 </div>
+              </div>
+              <div class="col"> 
+                 <div class="row p-3">
+              <div class="col-sm-5">State :</div>
+              <div class="col-sm-10"><select name="" id="state" class="form-control form-select" name="state" formControlName="state"  required>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                    <option value="6">6</option>
+                    <option value="7">7</option>
+                    <option value="8">8</option>
+              </select></div>
+           </div>
+        </div>
+              </div>
+                   <div class="row p-3">
+                      <div class="col-sm-3">Address :</div>
+                      <div class="col-sm-10"><textarea name="" id="companyAddress" cols="40" rows="3" name="companyAddress"  formControlName="companyAddress"  required></textarea></div>
+                   </div>
+               </div>
+              </div> 
+       <div class="d-flex justify-content-center">
+         <button mat-button matStepperPrevious class="btn btn-primary me-5">Back</button>
+         <button mat-button matStepperNext  class="btn btn-primary ">Next</button>
+       </div>
+      </div>
+   </mat-step>
+   <mat-step [stepControl]="myFormGroup" label="Fill out your Bank-Details">
+      <div formGroupName="thirdFormGroup">
+           <div class="d-flex justify-content-center m-3">
+               <div action="" class="border  text-dark p-5" id="formgroup3">
+                  <h2 class="text-center text-primary">Bank Details</h2>
+              <div class="row p-3 ml-5">
+                 <div class="col-sm-4">Full Name :</div>
+                 <div class="col-sm-10"><input type="text" class="form-control" name="fullNameBank"  formControlName="fullNameBank"  required></div>
+              </div>
+              <div class="row p-3">
+                 <div class="col-sm-4">Phone Number:</div>
+                 <div class="col-sm-10"><input type="number" class="form-control" name="bankPhoneNumber"  formControlName="bankPhoneNumber"  required></div>
+              </div>
+              <div class="row p-3">
+                  <div class="col-sm-4">Bank Name :</div>
+                  <div class="col-sm-10"><input type="text" class="form-control" name="bankName"  formControlName="bankName"  required></div>
+               </div>
+              <div class="row p-3">
+                 <div class="col-sm-3">Account Number :</div>
+                 <div class="col-sm-10"><input type="email" class="form-control" name="bankAccountNumber"  formControlName="bankAccountNumber"  required></div>
+              </div>
+              <div class="row p-3">
+                 <div class="col-sm-3">IFSC :</div>
+                 <div class="col-sm-10"><input type="text" class="form-control" name="ifsc" formControlName="ifsc" required></div>
+              </div>
+              <div class="row p-3">
+                 <div class="col-sm-3">Branch :</div>
+                 <div class="col-sm-10"><input type="text" class="form-control" name="branch" formControlName="branch"  required></div>
+              </div>
+              <div class="row p-3">
+                  <div class="col-sm-4">Add Passbook :</div>
+                  <div class="col-sm-10"><input type="file" name="image" id="image" ></div>
+               </div>
+               </div>
+          </div>
+          <div class="d-flex justify-content-center">
+           <button mat-button matStepperPrevious  class="btn btn-primary me-5">Back</button>
+           <button   type="submit"  class="btn btn-primary" (click)="addSellerDetails()">Submit</button>
+         </div>
+      </div>
+      
+       </mat-step>
+      </form>
+   <!-- <mat-step>
+     <ng-template matStepLabel>Done</ng-template>
+     <p>You are now done.</p>
+     <div>
+       <button mat-button matStepperPrevious>Back</button>
+       <button mat-button (click)="stepper.reset()">Reset</button>
+     </div>
+   </mat-step> -->
+ </mat-stepper>
+ <!-- <button type="button" (click)="addSellerDetails()" class="btn btn-primary">button</button> -->
+</body>

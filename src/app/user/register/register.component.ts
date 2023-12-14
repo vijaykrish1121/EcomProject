@@ -1,5 +1,7 @@
+import { ThisReceiver } from '@angular/compiler';
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
+import { ApiUrls } from 'src/app/common/apiUrls';
 import { ApiService } from 'src/app/service/api.service';
 @Component({
   selector: 'app-register',
@@ -34,19 +36,24 @@ export class RegisterComponent {
           password:this.password,
           userStatus:this.userStatus
         }
-         this.apiservice.addUserDetail("https://retoolapi.dev/tzfucZ/data",userDetail).subscribe((response)=>
+         this.apiservice.postAPiData(ApiUrls.userApi,userDetail).subscribe((response)=>
           {
-             console.log('respone',response)
+            this.router.navigate(['login'])
+            console.log('respone',response)
           }
          )
       }
+      else
+       alert('Fill all the details correctly')
       }
-      deleteUserDetail(){
-        this.apiservice.deleteUserDetail("https://retoolapi.dev/tzfucZ/data"+"/",this.userDetails.this.firstName).subscribe((afterdelete)=>
-        {
-         console.log(afterdelete);
+   
+
+      // deleteUserDetail(){
+      //   this.apiservice.deleteUserDetail("https://retoolapi.dev/tzfucZ/data"+"/",this.userDetails.this.firstName).subscribe((afterdelete)=>
+      //   {
+      //    console.log(afterdelete);
          
-        })
-      }
+      //   })
+      // }
          
 }

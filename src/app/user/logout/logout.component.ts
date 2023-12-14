@@ -7,9 +7,6 @@ import { Component } from '@angular/core';
 })
 export class LogoutComponent {
         logout(){
-          sessionStorage.removeItem('userName')
-          sessionStorage.removeItem('password')
-          localStorage.removeItem('userName')
-          localStorage.removeItem('password')
+          sessionStorage.removeItem('user')
         }
 }
