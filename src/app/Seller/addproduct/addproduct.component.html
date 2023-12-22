@@ -1,58 +1,240 @@
-<div class=" m-5">
+
+<div class=" mt-5 container">
     <div action="" class="border p-5 text-dark rounded">
-                <h2 class="text-center text-primary">Add product</h2>
+                <div class="text-center text-primary h1">Add product</div>
+                <div class="m-5">
+                      <label for="" class="text-success h2">choose product  </label>
+                    <select name="" id="" class="form-control form-select" [(ngModel)]="selectedOption" >Choose Products
+                      <option value="mobile">Mobile</option>
+                      <option value="dress">Dress</option>
+                      <option value="watch">Watch</option>
+                      <option value="laptop">Laptop</option>
+                    </select>
+                  </div>
+                  <!-- mobile -->
+                  <div  *ngIf="selectedOption=='mobile'" >
                   <div class="row">
-                    <div class="col-md-6">
-                        <label for="">upload Image</label>
-                        <input type="file" class="form-control">
-                        <img src="../../../assets/images/home/card-image.jpg" alt="" class="img-fluid">
+                    <div class="col-md-4">
+                        <div class="card">
+                          <div class="card-header">
+                            Product-Image
+                          </div>
+                          <div class="card-body">
+                            <h5 class="card-title">Product Image</h5>
+                           <img src="../../../assets/images/home/card-image.jpg" alt="" width="100%" class="card-image rounded" >
+                           <div class="card-img-overlay d-flex align-items-end justify-content-around">
+                            <button type="button" class="btn btn-secondary ">replace</button>
+                            <button type="button " class="btn btn-secondary ">remove</button>
+                          </div>
+                          </div>
+                        </div>
+                           <input type="file" name="add another image" id="">
                     </div>
-                    <div class="col-md-6" >
+                    <div class="col-md-8" >
+                      <div class="card">
+                        <div class="card-header">Product details </div>
+                          <div class="card-body">
                         <div class="row">
                         <div class="col-6">
-                            <label for="">choose product</label>
-                             <select name="" id="" class="form-control ">
-                                <option value="">1</option>
-                                <option value="">2</option>
-                                <option value="">3</option>
-                                <option value="">4</option>
+                            <label for="">Choose Mobile</label>
+                             <select name="" id="" class="form-control form-select"  [(ngModel)]="selectProduct">
+                                <option value="vivo">vivo</option>
+                                <option value="iqoo">IQOO</option>
+                                <option value="onePlus">One PLus</option>
+                                <option value="iPhone">Iphone</option>
                             </select></div>
-                        
+                         
                         <div class="col-6">
-                        <label for="">product Name</label>
-                        <input type="text" name="" id="" class="form-control">
+                        <label for="">Mobile Model</label>
+                        <input type="text" name="" id="" class="form-control" [(ngModel)]="mobileModel">
                     </div>
-                    <div class="col-6">
-                        <label for="">product Name</label>
-                        <input type="text" name="" id="" class="form-control">
+                    <div class="col-6 mt-5">
+                      <select name="" id="" class="form-control form-select" [(ngModel)]="mobileRam" >
+                        <option value="2gb">2gb</option>
+                        <option value="4gb">4gb</option>
+                        <option value="6gb">6gb</option>
+                        <option value="8gb">8gb</option>
+                        <option value="12gb">12gb</option>
+                        <option value="16gb">16gb</option>
+                        <option value="32">32gb</option>
+                    </select>
                     </div>
-                    <div class="col-6">
-                        <label for="">product Name</label>
-                        <input type="text" name="" id="" class="form-control">
+                    <div class="col-6 mt-5">
+                      <select name="" id="" class="form-control form-select" [(ngModel)]="mobileStorage" >
+                        <option value="32gb">32gb</option>
+                        <option value="64gb">64gb</option>
+                        <option value="128gb">128gb</option>
+                        <option value="256">256gb</option>
+                        <option value="512gb">512gb</option>
+                        <option value="1tb">1Tb</option>
+                        <option value="2tb">2Tb</option>
+                    </select>
                     </div>
-                    </div>
-                       </div>
-                    </div>    
+                    <div class="col-6 mt-5">
+                      <label for="">Mobile Weight</label>
+                      <input type="text" name="" id="" class="form-control" [(ngModel)]="mobileWeight">
+                  </div>
+                  <div class="col-6 mt-5">
+                    <label for="">Mobile Size</label>
+                    <input type="text" name="" id="" class="form-control" [(ngModel)]="mobileSize">
                 </div>
-       </div> 
-       <!-- <div class="container mt-4">
+                    </div>
+                
+                </div>
+              </div>
+                       </div>
+                    </div> 
+                    <div class="row mt-3">
+                      <div class="col">
+                        <div class="card">
+                          <div class="card-header">Product details </div>
+                            <div class="card-body">
+                          <div class="row">
+                          <div class="col-6">
+                              <label for="">choose product</label>
+                               <select name="" id="" class="form-control form-select" [(ngModel)]="productSpecs">
+                                  <option value="1">1</option>
+                                  <option value="2">2</option>
+                                  <option value="3">3</option>
+                                  <option value="4">4</option>
+                              </select></div>
+                          
+                          <div class="col-6">
+                          <label for="">Prize</label>
+                          <input type="text" name="" id="" class="form-control" [(ngModel)]="mobilePrize">
+                      </div>
+                      <div class="col-6 mt-5">
+                          <label for="">product Name</label>
+                          <input type="text" name="" id="" class="form-control" [(ngModel)]="productSpecs1">
+                      </div>
+                      <div class="col-6 mt-5">
+                          <label for="">Mobile Color</label>
+                          <input type="text" name="" id="" class="form-control"[(ngModel)]="mobileColor">
+                      </div>
+                      <div class="col-6 mt-5">
+                        <label for="">product Id</label>
+                        <input type="text" name="" id="" class="form-control" [(ngModel)]="mobileId">
+                    </div>
+                    <div class="col-6 mt-5">
+                      <label for="">product Name</label>
+                      <input type="text" name="" id="" class="form-control" [(ngModel)]="productSpecs2">
+                  </div>
+                      </div>
+                  
+                  </div>
+                </div>
+                      </div>
+            
+                    </div>  
+                    <div class="d-flex justify-content-center mt-5">
+                    <button type="button" class="btn btn-primary"  (click)="addProduct()">Submitt </button>  
+                  </div>
+                </div>
+      <!-- dress -->
+      <div *ngIf="selectedOption=='dress'">
         <div class="row">
-          <div class="col-md-6">
-            <img src="path/to/product-image.jpg" alt="Product Image" class="img-fluid">
+          <div class="col-md-4">
+              <div class="card">
+                <div class="card-header">
+                  Product-Image
+                </div>
+                <div class="card-body">
+                  <h5 class="card-title">Product Image</h5>
+                 <img src="../../../assets/images/home/card-image.jpg" alt="" width="100%" class="card-image rounded" >
+                 <div class="card-img-overlay d-flex align-items-end justify-content-around">
+                  <button type="button" class="btn btn-secondary ">replace</button>
+                  <button type="button " class="btn btn-secondary ">remove</button>
+                </div>
+                </div>
+              </div>
+                 <input type="file" name="add another image" id="">
           </div>
-          <div class="col-md-6">
-            <h2 class="mb-3">Product Title</h2>
-            <p class="lead">Product Description goes here.</p>
-            <p>Price: $99.99</p>
-            <button class="btn btn-primary">Add to Cart</button>
-            <div class="mt-3">
-              <h4>Product Details</h4>
-              <ul>
-                <li>Key Feature 1</li>
-                <li>Key Feature 2</li>
-                Add more features as needed
-              </ul>
-            </div>
+          <div class="col-md-8" >
+            <div class="card">
+              <div class="card-header">Product details mobile </div>
+                <div class="card-body">
+              <div class="row">
+              <div class="col-6">
+                  <label for="">choose product</label>
+                   <select name="" id="" class="form-control form-select"  [(ngModel)]="selectProduct" >
+                      <option value="">1</option>
+                      <option value="">2</option>
+                      <option value="">3</option>
+                      <option value="">4</option>
+                  </select></div>
+              
+              <div class="col-6">
+              <label for="">product Name</label>
+              <input type="text" name="" id="" class="form-control">
           </div>
+          <div class="col-6 mt-5">
+              <label for="">product Name</label>
+              <input type="text" name="" id="" class="form-control">
+          </div>
+          <div class="col-6 mt-5">
+              <label for="">product Name</label>
+              <input type="text" name="" id="" class="form-control">
+          </div>
+          <div class="col-6 mt-5">
+            <label for="">product Name</label>
+            <input type="text" name="" id="" class="form-control">
         </div>
-      </div> -->
+        <div class="col-6 mt-5">
+          <label for="">product Name</label>
+          <input type="text" name="" id="" class="form-control">
+      </div>
+          </div>
+      
+      </div>
+    </div>
+             </div>
+          </div> 
+          <div class="row mt-3">
+            <div class="col">
+              <div class="card">
+                <div class="card-header">Product details </div>
+                  <div class="card-body">
+                <div class="row">
+                <div class="col-6">
+                    <label for="">choose product</label>
+                     <select name="" id="" class="form-control form-select ">
+                        <option value="">1</option>
+                        <option value="">2</option>
+                        <option value="">3</option>
+                        <option value="">4</option>
+                    </select></div>
+                
+                <div class="col-6">
+                <label for="">product Name</label>
+                <input type="text" name="" id="" class="form-control">
+            </div>
+            <div class="col-6 mt-5">
+                <label for="">product Name</label>
+                <input type="text" name="" id="" class="form-control">
+            </div>
+            <div class="col-6 mt-5">
+                <label for="">product Name</label>
+                <input type="text" name="" id="" class="form-control">
+            </div>
+            <div class="col-6 mt-5">
+              <label for="">product Name</label>
+              <input type="text" name="" id="" class="form-control">
+          </div>
+          <div class="col-6 mt-5">
+            <label for="">product Name</label>
+            <input type="text" name="" id="" class="form-control">
+        </div>
+            </div>
+        
+        </div>
+      </div>
+            </div>
+
+          </div>
+          <div class="d-flex justify-content-center mt-5">
+            <button type="button" class="btn btn-primary" >Submitt </button>  
+          </div>   
+      </div>
+      
+    </div> 
+  </div>

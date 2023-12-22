@@ -1,0 +1,26 @@
+
+<button type="button" (click)="getDetails()"> get</button>
+<h1>profile</h1>
+<ul *ngFor="let detail of this.personalDetail">
+     <li>{{detail.FullName}}</li>
+     <li>{{detail.Email}}</li>
+     <li>{{detail.Address}}</li>
+     <li>{{detail.PhoneNumber}}</li>
+    
+</ul>
+
+<h1>company address</h1>
+<ul *ngFor="let detail of this.companyDetail">
+    <li>{{detail.CompanyName}}</li>
+    <li>{{detail.CompanyEmail}}</li>
+    <li>{{detail.CompanyAddress}}</li>
+    <li>{{detail.CompanyPhoneNum}}</li>
+</ul>
+<h1>Bank details</h1>
+<ul *ngFor="let detail of this.bankDetail">
+    <li>{{detail.FullNameBank}}</li>
+    <li>{{detail.BankName}}</li>
+    <li>{{detail.BankAccountNumber}}</li>
+    <li>{{detail.Ifsc}}</li>
+    <li>{{detail.Branch}}</li>
+</ul>

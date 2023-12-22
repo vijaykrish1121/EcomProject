@@ -9,6 +9,9 @@ import { FooterComponent } from './user/footer/footer.component';
 import { SellerRegistrationComponent } from './Seller/seller-registration/seller-registration.component';
 import { DashboardComponent } from './Seller/dashboard/dashboard.component';
 import { AddproductComponent } from './Seller/addproduct/addproduct.component';
+import { AppravolComponent } from './Admin/appravol/appravol.component';
+import { AdminDashboardComponent } from './Admin/admin-dashboard/admin-dashboard.component';
+import { SellerProfileComponent } from './Seller/seller-profile/seller-profile.component';
 const routes: Routes = [
   {path:'',component:HomeComponent},
   {path:'login',component:LoginComponent},
@@ -18,7 +21,10 @@ const routes: Routes = [
   {path:'footer',component:FooterComponent},
   {path:'sellerRegister',component:SellerRegistrationComponent},
   {path:'sellerDashboard',component:DashboardComponent},
-  {path:'addProduct',component:AddproductComponent}
+  {path:'addProduct',component:AddproductComponent},
+  {path:'approval',component:AppravolComponent},
+  {path:'adminDashboard',component:AdminDashboardComponent},
+  {path:'sellerProfile',component:SellerProfileComponent}
 ];
 
 @NgModule({

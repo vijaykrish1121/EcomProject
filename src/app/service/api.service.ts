@@ -14,12 +14,16 @@ return  this.httpclient.get(url)
   postAPiData(url:string,data:any){
      return  this.httpclient.post(url,data)
   }
-  putApiData(url:String,data:any){
-    return this.httpclient.put(data,url)
+  putApiData(url:String,id:any,requestBody:any){
+    return this.httpclient.put(url+'/'+id,requestBody)
   }
-  deleteApiData(url:string,data:any){
-    return this.httpclient.delete(url,data)
+  deleteApiData(url:string,id:any){
+    return this.httpclient.delete(url+'/'+id)
   }
+  filterApiData(url:string,id:any){
+     return this.httpclient.get(url+'/'+id)
+  }  
+
 //   addSellerPersonalDetails(SellerPersonalDetailsUrl:string,data:any){
 //          return this.httpclient.post(SellerPersonalDetailsUrl,data)
 //   }

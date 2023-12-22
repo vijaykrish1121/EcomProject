@@ -1,0 +1,97 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container-fluid p-4">
+      <a class="navbar-brand">Navbar</a>
+      <button class="navbar-toggler" type="button" (click)="isCollapsed = !isCollapsed" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+    aria-controls="navbarSupportedContent" [attr.aria-expanded]="!isCollapsed" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+</button>
+<div class="collapse navbar-collapse" id="navbarSupportedContent" [ngbCollapse]="isCollapsed" >
+        <ul class="navbar-nav mx-auto">
+          <li class="nav-item px-5">
+            <a class="nav-link active" aria-current="page">Home</a>
+          </li>
+          
+          <li class="nav-item px-5">
+            <a class="nav-link" routerLink="/contactUs" >Contact-Us</a>
+          </li>
+          <li class="nav-item dropdown px-5" ngbDropdown>
+            <a class="nav-link dropdown-toggle"  id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false" ngbDropdownToggle>
+              Approvals
+            </a>
+            <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink" ngbDropdownMenu>
+              <li ngbDropdownItem><a class="dropdown-item" (click)="onClickView('add')">Product Approvals</a></li>
+              <li ngbDropdownItem> <a class="dropdown-item" (click)="sellerDetails()" >Kyc Approvals</a></li>
+              <li ngbDropdownItem><a class="dropdown-item"  >Rejected Products</a></li>
+            </ul>
+          </li>
+          <li class="nav-item dropdown px-5" ngbDropdown>
+            <a class="nav-link dropdown-toggle"  id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false" ngbDropdownToggle>
+              Account
+            </a>
+            <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink" ngbDropdownMenu>
+              <li ngbDropdownItem><a class="dropdown-item" >Profile</a></li>
+              <li ngbDropdownItem> <a class="dropdown-item" >Kyc </a></li>
+              <li ngbDropdownItem><a class="dropdown-item"  >Something else here</a></li>
+            </ul>
+          </li>
+          <li class="nav-item px-5">
+            <a class="nav-link" routerLink="/contactUs" >Account</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+<div *ngIf="productApproval">
+<app-appravol></app-appravol>
+</div>
+                <div *ngIf="kycApprovals">
+                   <table class="container">
+                  <thead>
+                    <tr>
+                     <th>Seller Name</th>
+                     <th>Seller Company Name</th>
+                     <th>Seller Bank Details</th>
+                     <th>Details</th>
+                     <th>Status</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                     <tr *ngFor="let detail of this.details">
+                         <td>{{detail.FullName}} </td>
+                         <td>{{detail.CompanyName}}</td>
+                       
+                         <td><a style="cursor: pointer;"  class="text-primary"  (click)="viewDetails(detail.id)" >view Full Details</a></td>
+                         <td><button type="button" class="btn btn-success" (click)="approveSellerDetails(detail)">Approve</button></td>
+                         <td><button type="button" class="btn btn-danger" (click)="rejectSellerDetails(detail)" >Reject</button></td>
+                     </tr>
+                    </tbody>
+                  </table>
+                </div>
+
+                  <div *ngIf="viewDetail">
+                    <ul *ngFor="let detail1 of this.particularDetail"><h2 class="text-secondary"> Personal Details</h2>
+                      <li class="fs-5" > Full Name:{{detail1.FullName}}</li>
+                      <li class="fs-5"> Email :{{detail1.Email}}</li>
+                      <li class="fs-5">Address :{{detail1.Address}}</li>
+                      <li class="fs-5">PhoneNumber :{{detail1.PhoneNumber}}</li>
+                      <h2 class="text-secondary">Company Details</h2>
+                      <li class="fs-5"> Company Name:{{detail1.CompanyName}}</li>
+                      <li class="fs-5"> Company Email :{{detail1.CompanyEmail}}</li>
+                      <li class="fs-5"> Company  Address :{{detail1.CompanyAddress}}</li>
+                      <li class="fs-5">Company PhoneNumber :{{detail1.CompanyPhoneNumber}}</li>
+                      <li class="fs-5">GST Number :{{detail1.GstNum}}</li>
+                      <li class="fs-5">Country :{{detail1.Country}}</li>
+                      <li class="fs-5">State :{{detail1.State}}</li>
+                      <h2 class="text-secondary">Bank Details</h2>
+                      <li class="fs-5"> Name In Bank:{{detail1.FullNameBank}}</li>
+                      <li class="fs-5"> Bank Account Number :{{detail1.BankAccountNumber}}</li>
+                      <li class="fs-5">Bank Name :{{detail1.BankName}}</li>
+                      <li class="fs-5">Bank Phone Number :{{detail1.BankPhoneNumber}}</li>
+                      <li class="fs-5">IFSC:{{detail1.Ifsc}}</li>
+                      <li class="fs-5">Branch:{{detail1.Branch}}</li>
+                 
+                    </ul> 
+                  </div>
+                    
+                 
+            

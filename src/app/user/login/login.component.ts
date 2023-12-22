@@ -14,15 +14,15 @@ export class LoginComponent {
   details:any[]=[]
   constructor( private apiService:ApiService,private router:Router){}
     getUser(){
-      if(this.userName!='' && this.password!=''){
+      if(this.userName!='' && this.password!='' ){
        this.apiService.getApiData(ApiUrls.userApi).subscribe((response:any) =>{
         console.log(response);
         this.details=response
         for(let detail of this. details){
-        if(this.userName== detail.userName && this.password==detail.password){
-          sessionStorage.setItem("user",this.userName)
+        if(this.userName== detail.userName && this.password==detail.password ){
+          sessionStorage.setItem("user",detail.phoneNum)
           this.router.navigate(['/'])
-          this.apiService.loginstatus=true
+          this.apiService.loginstatus=true;
     }
     else
       this.msg='username or password is incorrect' 

@@ -3,59 +3,68 @@
     <div class="row g-0">
         <img src="/assets/images/register/registerbackground.jpg" alt=""  class="col-5">
     
-          <div action="" class=" rounded col-6 border" id="content">
+          <form action="" class=" rounded col-6 border" id="content"    [formGroup]="userDetails" (ngSubmit)="addUserDetails()">
             <h1 class="text-dark text-center">Register</h1>
                        <div class="row p-3">
                         <div class="col-3 text-light">Firstname</div>
-                        <div class="col-auto"><input type="text" class="form-control"[(ngModel)]='firstName'></div>
-                       </div>
+                        <div class="col-auto"><input type="text" class="form-control" name="firstName"  formControlName='firstName' ></div>
+                      <div class="text-danger" *ngIf="userDetails.get('firstName').hasError('required') && isFormSubmitted"> Fill the FirstName</div>
+                      </div>
                        <div class="row p-3">
                         <div class="col-3  text-light">Lastname </div>
-                        <div class="col-auto"><input type="text" class="form-control" [(ngModel)]="lastName"></div>
+                        <div class="col-auto"><input type="text" class="form-control"  name="lastName"  formControlName="lastName"></div>
+                        <div class="text-danger" *ngIf="userDetails.get('lastName').hasError('required') && isFormSubmitted"> Fill the LastName</div>
                        </div>
                        <div class="row p-3">
                         <div class="col-3  text-light">Gender</div>
                         <div class="col-auto text-light">
-                            <input type="radio" name="gender" value="male" class="form-check-input" [(ngModel)]="gender"> -male <br>
-                            <input type="radio" name="gender" value="female" class="form-check-input" [(ngModel)]="gender">-female <br>
-                            <input type="radio" name="gender" value="others"class="form-check-input " [(ngModel)]="gender">-others <br>
+                            <input type="radio" name="gender" value="male" class="form-check-input"  name="gender"  formControlName="gender"> -male <br>
+                            <input type="radio" name="gender" value="female" class="form-check-input"  name="gender"  formControlName="gender">-female <br>
+                            <input type="radio" name="gender" value="others"class="form-check-input "  name="gender"  formControlName="gender">-others <br>
                         </div>
+                        <div class="text-danger" *ngIf="userDetails.get('gender').hasError('required') && isFormSubmitted"> Fill the Gender</div>
                        </div>
                        <div class="row p-3">
                         <div class="col-3  text-light">phone Number</div>
-                        <div class="col-auto"><input type="number" class="form-control" [(ngModel)]="phoneNum"></div>
+                        <div class="col-auto"><input type="number" class="form-control"  name="phoneNum"  formControlName="phoneNum"></div>
+                        <div class="text-danger" *ngIf="userDetails.get('phoneNum').hasError('required') && isFormSubmitted"> Fill the Phone Number</div>
                        </div>
                        <div class="row p-3">
                         <div class="col-3  text-light">EmailId</div>
-                        <div class="col-auto"><input type="email" class="form-control" [(ngModel)]="email"></div>
+                        <div class="col-auto"><input type="email" class="form-control"  name="email"  formControlName="email"></div>
+                        <div class="text-danger" *ngIf="userDetails.get('email').hasError('required') && isFormSubmitted"> Fill the Email</div>
                        </div>
                        <div class="row p-3">
                         <div class="col-3  text-light">Address</div>
-                        <div class="col-auto"><textarea name="address" id="" cols="30" rows="3" [(ngModel)]="address"></textarea></div>
+                        <div class="col-auto"><textarea name="address" id="" cols="30" rows="3"  name="address"  formControlName="address"></textarea></div>
+                        <div class="text-danger" *ngIf="userDetails.get('address').hasError('required') && isFormSubmitted"> Fill the Address</div>
                        </div>
                        <div class="row p-3">
                         <div class="col-3  text-light">password</div>
-                        <div class="col-auto"><input type="password" class="form-control"></div>
+                        <div class="col-auto"><input type="password" class="form-control" name="password" formControlName="password"></div>
+                        <div class="text-danger" *ngIf="userDetails.get('password').hasError('required') && isFormSubmitted"> Fill the Password</div>
                        </div>
                        <div class="row p-3">
                         <div class="col-3  text-light">Confirm password</div>
-                        <div class="col-auto"><input type="password" class="form-control" [(ngModel)]="password"></div>
+                        <div class="col-auto"><input type="password" class="form-control"  name="confrmPassword"  formControlName="confrmPassword"></div>
+                        <div class="text-danger" *ngIf="userDetails.get('confrmPassword').hasError('required') && isFormSubmitted"> Fill the ConfirmPassword</div>
                        </div>
                        <div class="row p-3">
                         <div class="col-3  text-light">Select details</div>
                         <div class="col-auto">
-                        <select name="details" id="details" class="form-control" [(ngModel)]="userStatus">
+                        <select name="details" id="details" class="form-control"  name="userStatus"  formControlName="userStatus">
                             <option value=""> ..select..</option>
                             <option value="admin">Admin</option>
                             <option value="Customer">customer</option>
                             <option value="employee">Employee</option>
                         </select></div>
+                        <div class="text-danger" *ngIf="userDetails.get('userStatus').hasError('required') && isFormSubmitted"> Fill the Status</div>
                        </div>
                        <div class="row justify-content-center pl-5 mt-5">
                         <div class="col-auto  text-light"><input type="radio">The given details is correct</div>
-                         <div class="col-auto"><button type="button" class="btn btn-success" (click)="addUserDetails()">save</button></div>
+                         <div class="col-auto"><button type="submit" class="btn btn-success" >save</button></div>
                        </div>      
-                      </div>
+                      </form>
         </div>
         <!-- <button type="button " (click)="deleteUserDetail()">delete</button> -->
 </body>

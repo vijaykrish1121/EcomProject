@@ -21,6 +21,9 @@ import {ReactiveFormsModule} from '@angular/forms';
 import { AddproductComponent } from './Seller/addproduct/addproduct.component';
 import { AdminRegisterComponent } from './Admin/admin-register/admin-register.component';
 import { DashboardComponent } from './Seller/dashboard/dashboard.component';
+import { AppravolComponent } from './Admin/appravol/appravol.component';
+import { AdminDashboardComponent } from './Admin/admin-dashboard/admin-dashboard.component';
+import { SellerProfileComponent } from './Seller/seller-profile/seller-profile.component';
 
 
 @NgModule({
@@ -37,6 +40,9 @@ import { DashboardComponent } from './Seller/dashboard/dashboard.component';
     AddproductComponent,
     AdminRegisterComponent,
     DashboardComponent,
+    AppravolComponent,
+    AdminDashboardComponent,
+    SellerProfileComponent,
     
   ],
   imports: [

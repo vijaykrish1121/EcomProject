@@ -1,0 +1,38 @@
+<div class="container">
+<table class="table table-striped table-bordered">
+    <thead>
+  <tr class="table-warning h6">
+    <th>S.No</th>
+    <th>productSelected</th>
+    <th>mobileModel</th>
+    <th>mobileRam</th>
+    <th>mobileStorage</th>
+    <th>mobileWeight</th>
+    <th>mobileSize</th>
+   <th> productSpecs</th>
+   <th>mobilePrize</th>
+   <th>mobileColor</th>
+   <th>mobileId</th>
+   <th colspan="3">Status</th>
+  </tr>
+</thead>
+<tbody>
+    <tr *ngFor="let appravol of approvals;let i=index" class="table-primary">
+        <td>{{i+1}}</td>
+        <td>{{appravol.productSelected}}</td>
+        <td>{{appravol.mobileModel}}</td>
+        <td>{{appravol.mobileRam}}</td>
+        <td>{{appravol.mobileStorage}}</td>
+        <td>{{appravol.mobileWeight}}</td>
+        <td>{{appravol.mobileSize}}</td>
+        <td>{{appravol.productSpecs}}</td>
+        <td>{{appravol.mobilePrize}}</td>
+        <td>{{appravol.mobileColor}}</td>
+        <td>{{appravol.mobileId}}</td>
+        <td><button type="button" (click)="deleteProduct(appravol.id)">delete {{appravol.id}} </button></td>
+        <td><button type="button" class="btn btn-success" (click)="approveProduct(appravol)" >Approve</button></td>
+        <td><button type="button" class="btn btn-danger" (click)="rejectProduct(appravol)">Reject</button></td>
+    </tr>
+</tbody>
+</table>
+</div>

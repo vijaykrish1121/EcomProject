@@ -1,40 +1,55 @@
 import { ThisReceiver } from '@angular/compiler';
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { ApiUrls } from 'src/app/common/apiUrls';
 import { ApiService } from 'src/app/service/api.service';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',
   styleUrls: ['./register.component.scss']
 })
 
-export class RegisterComponent {
+export class RegisterComponent implements OnInit {
   constructor(private apiservice:ApiService,private router:Router){
 
   }
-      firstName:string=''
-      lastName:string=''
-      gender:string=''
-      phoneNum:string=''
-      email:string=''
-      password:string='' 
-      userStatus:string=''
-      address:string=''
-       userDetails:any=[]
-       
+
+   
+       userDetails:any;
+       isFormSubmitted : boolean = false;
+    ngOnInit(): void {
+      this.userDetails=this.getUserDetails();
+    }
+       getUserDetails(){
+        return new FormGroup({
+          firstName:new FormControl('',[Validators.required]),
+          lastName:new FormControl('',[Validators.required]),
+          gender:new FormControl('',[Validators.required]),
+          phoneNum:new FormControl('',[Validators.required]),
+          email:new FormControl('',[Validators.required]),
+          password:new FormControl('',[Validators.required]),
+          confrmPassword:new FormControl('',[Validators.required]),
+          userStatus:new FormControl('',[Validators.required]),
+          address:new FormControl('',[Validators.required])
+
+        })
+       }
+
       addUserDetails(){
-        if(this.firstName!='' && this.lastName!="" && this.gender!=''&& this.phoneNum!='' && this.email!='' && this.address!='' && this. password!='' && this.userStatus!=''){
+        this.isFormSubmitted = true;
+        if(this.userDetails.valid){
+          if(this.userDetails.get('password')?.value ==this.userDetails.get('confrmPassword')?.value){
         let userDetail={
-          firstName:this.firstName,
-          lastName:this.lastName,
-          gender:this.gender,
-           userName: this.firstName+this.lastName,
-          phoneNum:this.phoneNum,
-          email:this.email,
-          address:this.address,
-          password:this.password,
-          userStatus:this.userStatus
+          firstName:this.userDetails.get('firstName')?.value,
+          lastName:this.userDetails.get('lastName')?.value,
+          gender:this.userDetails.get('genderName')?.value,
+           userName:this.userDetails.get('firstName')?.value+this.userDetails.get('lastName')?.value,
+          phoneNum:this.userDetails.get('phoneNum')?.value,
+          email:this.userDetails.get('email')?.value,
+          address:this.userDetails.get('address')?.value,
+          password:this.userDetails.get('password')?.value,
+          userStatus:this.userDetails.get('userStatus')?.value
         }
          this.apiservice.postAPiData(ApiUrls.userApi,userDetail).subscribe((response)=>
           {
@@ -42,18 +57,15 @@ export class RegisterComponent {
             console.log('respone',response)
           }
          )
-      }
+      
+    }
+    else
+    alert('password and confirm password is not matched')
+  }
       else
        alert('Fill all the details correctly')
-      }
+        }
+  
+    
    
-
-      // deleteUserDetail(){
-      //   this.apiservice.deleteUserDetail("https://retoolapi.dev/tzfucZ/data"+"/",this.userDetails.this.firstName).subscribe((afterdelete)=>
-      //   {
-      //    console.log(afterdelete);
-         
-      //   })
-      // }
-         
 }
