@@ -20,18 +20,11 @@ return  this.httpclient.get(url)
   deleteApiData(url:string,id:any){
     return this.httpclient.delete(url+'/'+id)
   }
-  filterApiData(url:string,id:any){
-     return this.httpclient.get(url+'/'+id)
+  filterApiDatas(url:string,requestBody1:any,requestbody2:any){
+     return this.httpclient.get(url+'?'+requestBody1+requestbody2)
   }  
-
-//   addSellerPersonalDetails(SellerPersonalDetailsUrl:string,data:any){
-//          return this.httpclient.post(SellerPersonalDetailsUrl,data)
-//   }
-//   addSellerCompanyDetails(SellerCompanyDetailsUrl:string,data:any){
-//     return this.httpclient.post(SellerCompanyDetailsUrl,data)
-// }
-// addSellerBankDetails(SellerBankDetailsUrl:string,data:any){
-//   return this.httpclient.post(SellerBankDetailsUrl,data)
-// }
+  filterApi(url:string,requestBody1:any){
+    return this.httpclient.get(url+'?'+requestBody1)
+ } 
   }
 

@@ -1,30 +1,29 @@
 <header>
     <app-nav-bar></app-nav-bar>
 </header>
-   <body>
-     
-      <div class=" rounded">
-    <ngb-carousel *ngIf="showCarousel" #carousel [interval]="5000" >
-        <ng-template ngbSlide>
-          <div style="height: 300px;" ><img src="../../../assets/images/slides/selling-online.jpg" alt="" class="" width="100%">
+          <div class="row">
+           <div class="d-flex justify-content-center"> <h2 >Mobiles</h2></div>
+                <div class="col" *ngFor="let approved of this.approvedProductMobileLists">
+                  <a (click)="viewProduct(approved.id)"><div class="card" style="width: 18rem;">
+                        <img src="../../../assets/images/home/card-image.jpg" class="card-img-top" alt="...">
+                        <div class="card-body">
+                          <p class="card-text">{{approved.selectProduct}}</p>
+                        </div>
+                      </div>
+                    </a>
+                </div>
           </div>
-        </ng-template>
-        <ng-template ngbSlide>
-          <div   style="height: 300px;" ><img src="../../../assets/images/slides/HireSalesGraphic.jpg" alt="" class="" width="100%" >
-          </div>
-        </ng-template>
-      </ngb-carousel>
-    </div>
-    <div  class="h-25 w-50">
-      <div class="card  text-center-end text-white">
-        <img src="/assets/images/home/card-image.jpg" alt="" class="card-img"   > 
-        <div class="card-body mt-5 card-img-overlay">
-          <h5 class="card-title">Special Selling Ecommerce</h5>
-          <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-          <a href="#" class="btn btn-primary btn-lg">Start Now</a>
-        </div>
-      </div>
-    </div>
-   </body>
+          <div class="row">
+            <div class="d-flex justify-content-center"> <h2 >Dresses</h2></div>
+                 <div class="col" *ngFor="let approved of this.approvedProductDressLists">
+                  <a (click)="viewDressProduct(approved.id)"> <div class="card" style="width: 18rem;">
+                         <img src="../../../assets/images/home/card-image.jpg" class="card-img-top" alt="...">
+                         <div class="card-body">
+                           <p class="card-text">{{approved.productName}}</p>
+                         </div>
+                       </div>
+                  </a>
+                 </div>
+           </div>
 
     <app-footer></app-footer>

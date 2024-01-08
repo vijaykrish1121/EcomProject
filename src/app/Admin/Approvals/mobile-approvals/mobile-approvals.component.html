@@ -1,0 +1,103 @@
+<div class="container" *ngIf="viewProduct">
+    <table class="table table-striped table-bordered">
+        <thead>
+      <tr class="table-warning h6">
+        <th>S.No</th>
+        <th>Seller Id</th>
+        <th>productSelected</th>
+        <th>mobileModel</th>
+        <th>Ram/Rom</th>
+       <th>mobilePrize</th>
+       <th>mobileColor</th>
+       <th>mobileId</th>
+       <th>Date/Time</th>
+       <th colspan="4">Status</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let appravol of approvals;let i=index" class="table-primary">
+            <td>{{i+1}}</td>
+            <td>{{appravol.sellerId}}</td>
+            <td>{{appravol.selectProduct}}</td>
+            <td>{{appravol.mobileModel}}</td>
+            <td>{{appravol.mobileRam}}/{{appravol.mobileStorage}}</td>
+            <td>{{appravol.mobilePrize}}</td>
+            <td>{{appravol.mobileColor}}</td>
+            <td>{{appravol.mobileId}}</td>
+            <td>{{appravol.timeStamp}}</td>
+            <!-- <td><button type="button" class="btn btn-danger" (click)="deleteProduct(appravol.id)">delete</button></td> -->
+            <td><button type="button" class="btn btn-primary" (click)="viewFullDetail(appravol.id,content)" >view details</button></td>
+            <td><button type="button" class="btn btn-success" (click)="approveProduct(appravol)" >Approve</button></td>
+            <td><button type="button" class="btn btn-danger" (click)="rejectProduct(appravol)">Reject</button></td>
+           
+        </tr>
+    </tbody>
+    </table>
+    </div>
+    <ng-template #content let-modal>
+      <div class="modal-header">
+        <h4 class="modal-title">Seller Details</h4>
+        <button type="button" class="btn-close" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
+      </div>
+      <div class="modal-body">
+     <div *ngIf="viewDetail"> 
+          <ul *ngFor="let detail of this.mobileDetail">
+<li>{{detail.selectProduct}}</li>
+<li>{{detail.mobileModel}}</li>
+<li>{{detail.mobileRam  }} </li> 
+<li>{{detail.mobileStorage}}</li>
+<li>{{detail.mobileWeight}} </li>
+<li>{{detail.mobileSize }} </li> 
+<li>{{detail.os}}</li>          
+<li>{{detail.camera}} </li>     
+<li>{{detail.processor }} </li>  
+<li>{{detail.mobilePrize }} </li>
+<li>{{detail.mobileBattery }}</li>
+<li>{{detail.choosedColour }}</li>
+<li>{{detail.mobileColor }} </li>
+<li>{{detail.sim}}   </li>   
+<li>{{detail.quality }}  </li>   
+<li>{{detail.mobileId }}  </li>   
+<li>{{detail.mobileOrigin }}</li>
+<li>{{detail.quantity }}   </li>  
+<div class="mx-auto d-flex justify-content-around">
+<div><button type="button" class="btn btn-danger" (click)="rejectProduct(detail)">Reject</button></div>
+<div><button type="button" class="btn btn-success" (click)="approveProduct(detail)" >Approve</button></div>
+</div> 
+          </ul>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" (click)="modal.close('Close click')">Close</button>
+      </div>
+  </ng-template>
+
+  <!-- <div *ngIf="viewPayment">
+      <div class="row">
+        <div class="col">From Acc</div>
+        <div class="col"><select name="" id="" [(ngModel)]='accNo' >
+          <option *ngFor="let acc of this.adminAccounts" value="{{acc.accNo}}">{{acc.accNo}}</option>
+        </select></div>
+      </div>
+      <div class="row">
+        <div class="col">To Acc</div>
+        <div class="col">
+        <ul *ngFor="let accDetail of this.sellerAccountDetail">
+          <li>{{accDetail.BankAccounNumber}}</li>
+          <li>{{accDetail.BankName}}</li>
+        </ul>
+      </div>
+    </div>
+         <div class="mx-auto"><a (click)="password()">Processed to pay</a></div>
+    </div>
+    <div *ngIf="pinPage">
+      <div class="row">
+        <div class="col-2">Pin</div>
+        <div class="col-2"><input type="text"[(ngModel)]='typedPin'></div>
+      </div>
+       <button type="button" class="btn btn-primary" (click)="checkPassword()" >submit</button>
+    </div>
+    </div>
+    <div class="modal-footer">
+      <button type="button" class="btn btn-secondary" (click)="modal.close('Close click')">Close</button>
+    </div>-->

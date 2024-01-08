@@ -1,0 +1,30 @@
+<div>
+    <!-- <ul *ngFor="let detail of paidTranscation;let i=index" >
+     <div class="row">
+      <div class="col"> <th>{{i+1}}.{{detail.timeStamp}}</th> </div>
+      <div class="col"><th class="text-danger">{{detail.FundRelesed}}</th></div>
+    </div>
+        <li >{{detail.sellerId}}</li>
+        <li>{{detail.quantity}}</li>
+        <li>{{detail.totalCost}}</li>
+        <li>{{detail.productName}}</li>
+        <li>{{detail.specification}}</li>
+        <li>{{detail.mobileColour}}</li>
+    </ul> -->
+    <ul *ngFor="let detail of receivedTranscation;let i=index">
+        <div class="row">
+         <div class="col"> <th>{{i+1}}.{{detail.timeStamp}}</th> </div>
+         <div class="col"><th  [ngClass]="{'red':detail.FundRelesed==='paid','green':detail.FundRelesed==='unpaid'}" >{{detail.FundRelesed}}</th></div>
+         <div class="col"><th  [ngClass]="{'red1':detail.FundRelesed==='paid','green1':detail.FundRelesed==='unpaid'}" >{{detail.totalCost}}</th></div>
+
+       </div>
+           <li >{{detail.sellerId}}</li>
+           <li>{{detail.customerId}}</li>
+           <li>{{detail.quantity}}</li>
+           <li>{{detail.totalCost}}</li>
+           <li>{{detail.productName}}</li>
+           <li>{{detail.specification}}</li>
+           <li>{{detail.mobileColour}}</li>
+       </ul>  
+</div>
+

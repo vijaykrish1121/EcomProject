@@ -49,7 +49,8 @@ export class RegisterComponent implements OnInit {
           email:this.userDetails.get('email')?.value,
           address:this.userDetails.get('address')?.value,
           password:this.userDetails.get('password')?.value,
-          userStatus:this.userDetails.get('userStatus')?.value
+          userStatus:this.userDetails.get('userStatus')?.value,
+          kycStatus:false
         }
          this.apiservice.postAPiData(ApiUrls.userApi,userDetail).subscribe((response)=>
           {

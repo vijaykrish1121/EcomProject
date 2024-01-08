@@ -1,0 +1,17 @@
+<div *ngIf="viewPage">
+       <ul *ngFor="let product of this.viewDetail">
+       <li>{{product.selectProduct}}</li>
+       <li>{{product.mobileStorage}}</li>
+       <li>{{product.mobilePrize}}</li>
+       <li><select name="quantity" id="" [(ngModel)]="quantity">
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+        <option value="5">5</option>
+        <option value="6">6</option>
+       </select></li>
+       <button type="button" class="btn btn-primary">AddToCart</button>
+       <button type="button" class="btn btn-primary" (click)="buyNow(product.id)">Buy Now</button>
+       </ul>
+</div>

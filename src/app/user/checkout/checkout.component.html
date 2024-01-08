@@ -1,0 +1,140 @@
+
+   <mat-stepper   orientation="vertical" [linear]="!isLinear" #stepper class="container mt-5">
+    <mat-step >
+        <ng-template matStepLabel>Delivery Address</ng-template>
+        <div class="row"> 
+          <div class="m-5 col">{{addresss}}</div>  
+          <div class="col"><a class="text-primary" (click)="openAddress(content)">Choose saved addresss</a></div>
+        </div>
+        <ng-template #content let-modal>
+          <div class="modal-header">
+            <h4 class="modal-title">Modal title</h4>
+            <button type="button" class="btn-close" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
+          </div>
+          <div class="modal-body">
+            <div *ngFor="let address of this.savedAddress" class="row g-2">
+            <div class="col-1"><input type="radio" value="{{address.fullName}},{{address.phoneNumber}},{{address.address}},{{address.pinCode}},{{address.detail1}},{{address.landMark}}" name="address" [(ngModel)]="addresss" class="m-3"> </div> <div class="col"><div class="font-weight-bold h5">{{address.fullName}}</div><div>{{address.fullName}},{{address.phoneNumber}},{{address.address}} <br>
+              {{address.pinCode}},{{address.detail1}},{{address.landMark}} </div></div>
+             </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" (click)="modal.close('Close click')">Close</button>
+          </div>
+        </ng-template>
+         <a class="m-3" (click)="addNewAddress(address)">Add New Address</a>
+
+        <div>
+          <button mat-button matStepperNext [disabled]="!checkfield" >Next</button>
+        </div>
+    </mat-step>
+    <mat-step  label="Fill out your address">
+        <ng-template matStepLabel>Choose Payment Type</ng-template>
+        <div>
+         <div class="p-3">
+        <input type="radio" name="paymentType" id="" value="creditCard">CreditCard
+         </div>
+         <div class="p-3">
+        <input type="radio" name="paymentType" id="" value="depitCard">depitCard
+      </div>
+      <div class="p-3">
+        <input type="radio" name="paymentType" id="" value="upi">UPi
+      </div>
+    <div class="p-3">
+        <input type="radio" name="paymentType" id="" value="cashOnDelivery">CashOnDelivery
+         </div>
+        <div class="p-3">
+            <button mat-button matStepperNext (click)="reviewOrder()" >choose this payment Type</button>
+          </div>
+        </div>
+    </mat-step>
+    <mat-step>
+      <ng-template matStepLabel>review Item and delivery</ng-template>
+      <ul *ngFor="let product of this.viewDetail">
+        <li>mobile Name:{{product.selectProduct}}</li>
+        <li>Quantity:{{this.quantity}}</li>
+        <li>Mobile Storage:{{product.mobileStorage}}</li>
+        <li>mobile Prize :{{product.mobilePrize}}</li>
+        <li>total Amount :{{this.quantity*product.mobilePrize}}</li>
+        </ul>
+      <div>
+        <button mat-button matStepperPrevious>Back</button>
+        <button mat-button (click)="finalPayment()">place order</button>
+      </div>
+    </mat-step>
+  </mat-stepper>
+
+  <ng-template #address let-modal>
+    <div class="modal-header">
+      <h4 class="modal-title">Modal title</h4>
+      <button type="button" class="btn-close" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
+    </div>
+    <div class="modal-body">
+     <form [formGroup]="deliverAddress" (ngSubmit)="addAddress()">
+        <ng-template matStepLabel>ADD DELIVERY ADDRESS</ng-template>
+        <div>
+        <mat-form-field>
+          <mat-label>Full Name</mat-label>
+          <input matInput placeholder="Last name, First name" formControlName="fullName" required>
+        </mat-form-field>
+    </div>
+    <div>
+        <mat-form-field>
+            <mat-label>phone Number</mat-label>
+            <input type="number" matInput placeholder="Last name, First name" formControlName="phoneNumber" required>
+          </mat-form-field>
+        </div>
+        <div>
+          <mat-form-field>
+            <mat-label>Address</mat-label>
+            <textarea matInput formControlName="address"  cdkTextareaAutosize
+            #autosize="cdkTextareaAutosize"
+            cdkAutosizeMinRows="1"
+            cdkAutosizeMaxRows="5" name="" id="" ></textarea>
+          </mat-form-field>
+        </div>
+        <div>
+          <mat-form-field>
+            <mat-label>Pin Code</mat-label>
+            <input matInput placeholder="Last name, First name" formControlName="pinCode" required>
+          </mat-form-field>
+          <div>
+            <mat-form-field>
+            <mat-label>Flat, House no., Building, Company, Apartment</mat-label>
+            <input matInput placeholder="Last name, First name" formControlName="detail1" required>
+          </mat-form-field>
+        </div>
+        <div>
+            <mat-form-field>
+            <mat-label>Area, Street, Sector, Village</mat-label>
+            <input matInput placeholder="Last name, First name" formControlName="detail2" required>
+          </mat-form-field>
+        </div>
+        <div>
+            <mat-form-field>
+            <mat-label>Landmark</mat-label>
+            <input matInput placeholder="Last name, First name" formControlName="landMark" required>
+          </mat-form-field>
+        </div>
+        <div>
+            <mat-form-field>
+            <mat-label>Town/City</mat-label>
+            <input matInput placeholder="Last name, First name" formControlName="town" required>
+          </mat-form-field>
+        </div>
+        <div>
+            <mat-form-field>
+            <mat-label>State</mat-label>
+            <input matInput placeholder="Last name, First name" formControlName="state" required>
+          </mat-form-field>
+        </div>
+        </div>
+        <div class="d-flex justify-content-center">
+          <button type="submit" class="btn btn-primary">submit</button>
+        </div>
+      </form>
+    </div>
+    <div class="modal-footer">
+      <button type="button" class="btn btn-secondary" (click)="modal.close('Close click')">Close</button>
+    </div>
+  </ng-template>
+     

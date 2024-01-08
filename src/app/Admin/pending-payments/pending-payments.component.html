@@ -1,0 +1,41 @@
+<div>
+    <table class="container">
+        <thead>
+          <tr>
+           <th>S.No</th>
+           <th>Seller Id</th>
+           <th>product Name</th>
+           <th>Quantity</th>
+           <th>Total Cost</th>
+          </tr>
+        </thead>
+        <tbody>
+           <tr *ngFor="let list of pendingList;let i=index">
+               <td>{{i+1}} </td>
+               <td>{{list.sellerId}}</td>
+               <td>{{list.productName}}</td>
+               <td>{{list.quantity}}</td>
+               <td>{{list.totalCost}}</td>
+               <td><a style="cursor: pointer;"  class="text-primary" (click)="viewPasswordPage(content1)" >Relese Fund</a></td>
+               <ng-template #content1 let-modal>
+                <div class="modal-header">
+                  <h4 class="modal-title">Seller Details</h4>
+                  <button type="button" class="btn-close" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col">enter Pin to resele fund</div>
+                        <div class="col"><input type="number" [(ngModel)]="pin"></div>
+                    </div>
+                </div>
+                <div class="d-flex justify-content-center"> 
+                    <button type="button" class="btn btn-primary" (click)="releseFund(list.id)" >relese Fund</button>
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" (click)="modal.close('Close click')">Close</button>
+                </div>
+              </ng-template>
+           </tr>
+          </tbody>
+        </table>
+</div>

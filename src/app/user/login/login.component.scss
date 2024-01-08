@@ -1,70 +1,105 @@
+// body{
+//      background-image:url("/assets/images/login/login-background.jpg");
+//     background-size: cover;
+//     display: flex;
+//     height:100vh;
+//     justify-content: center; 
+//     align-items: center;
+//  } 
+//  .form{
+//     width: 350px;
+//     height: 450px;
+//     display: flex;
+//     flex-direction: column;
+//     backdrop-filter: blur(5px);
+//     border: 1px solid black;
+//     border-radius: 5px;
+//     align-items: center;
+//  }
+//  .form h1{
+//     display: flex;
+//     flex-direction: column;
+//     text-align: center;
+//     color: white;
+//  }
+//  .form .login{  
+//     display: flex;
+//     flex-direction: column;
+//     width: 80%;    
+//  }
+//  .login ,input,button{
+//     margin: 10px;
+//     padding: 10px 15px;
+//     outline: none;
+//     border-radius: 60px;
+//     font-size: 16px;
+//  }
+//  .login input{
+//     background-color: lightblue;
+//     color:black;
+//     letter-spacing: 1px;
+//     text-indent: 35px;
+//      background-image: url("/assets/images/login/username-icon.png");
+//     background-repeat: no-repeat;
+//     background-size: 15px;
+//     background-position: 15px;
+//  }
+//  .login input:nth-child(2){
+//     background-image: url("/assets/images/login/icon-password.jpg");
+//  }
+//  .login input::placeholder{
+//     font-size: 14px;
+//  }
+//  .login button{
+//     background-color: aqua;
+//     cursor: pointer;
+//  }
+//  .suggest{
+//     width: 85%;
+//     display: flex;
+//     align-items: center;
+//     justify-content: space-between;
+//     color: aliceblue;
+//  }
+//  .forgot{
+//     color: aqua;
+//  }
+//  a{
+//   text-decoration: none;
+//   color: aqua;
+//  }
 body{
-     background-image:url("/assets/images/login/login-background.jpg");
-    background-size: cover;
-    display: flex;
-    height:100vh;
-    justify-content: center; 
-    align-items: center;
- } 
- .form{
-    width: 350px;
-    height: 450px;
-    display: flex;
-    flex-direction: column;
-    backdrop-filter: blur(5px);
-    border: 1px solid black;
-    border-radius: 5px;
-    align-items: center;
- }
- .form h1{
-    display: flex;
-    flex-direction: column;
-    text-align: center;
-    color: white;
- }
- .form .login{  
-    display: flex;
-    flex-direction: column;
-    width: 80%;    
- }
- .login ,input,button{
-    margin: 10px;
-    padding: 10px 15px;
-    outline: none;
-    border-radius: 60px;
-    font-size: 16px;
- }
- .login input{
-    background-color: lightblue;
-    color:black;
-    letter-spacing: 1px;
-    text-indent: 35px;
-     background-image: url("/assets/images/login/username-icon.png");
-    background-repeat: no-repeat;
-    background-size: 15px;
-    background-position: 15px;
- }
- .login input:nth-child(2){
-    background-image: url("/assets/images/login/icon-password.jpg");
- }
- .login input::placeholder{
-    font-size: 14px;
- }
- .login button{
-    background-color: aqua;
-    cursor: pointer;
- }
- .suggest{
-    width: 85%;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    color: aliceblue;
- }
- .forgot{
-    color: aqua;
- }
- a{
-  text-decoration: none;
-  color: aqua;
- }
+   font-family: 'Poppins', sans-serif;
+   background: #ececec;
+}
+/*------------ Login container ------------*/
+.box-area{
+   width: 930px;
+}
+/*------------ Right box ------------*/
+.right-box{
+   padding: 40px 30px 40px 40px;
+}
+/*------------ Custom Placeholder ------------*/
+::placeholder{
+   font-size: 16px;
+}
+.rounded-4{
+   border-radius: 20px;
+}
+.rounded-5{
+   border-radius: 30px;
+}
+/*------------ For small screens------------*/
+@media only screen and (max-width: 768px){
+    .box-area{
+       margin: 0 10px;
+    }
+    .left-box{
+       height: 100px;
+       overflow: hidden;
+    }
+    .right-box{
+       padding: 20px;
+    }
+}

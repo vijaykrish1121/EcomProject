@@ -55,8 +55,8 @@
                         <select name="details" id="details" class="form-control"  name="userStatus"  formControlName="userStatus">
                             <option value=""> ..select..</option>
                             <option value="admin">Admin</option>
-                            <option value="Customer">customer</option>
-                            <option value="employee">Employee</option>
+                            <option value="seller">Seller</option>
+                            <option value="user">User</option>
                         </select></div>
                         <div class="text-danger" *ngIf="userDetails.get('userStatus').hasError('required') && isFormSubmitted"> Fill the Status</div>
                        </div>

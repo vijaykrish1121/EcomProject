@@ -1,6 +1,6 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <div class="container-fluid p-4">
-      <a class="navbar-brand">Navbar</a>
+      <a class="navbar-brand" (click)="onClickView('add')">Navbar</a>
       <button class="navbar-toggler" type="button" (click)="isCollapsed = !isCollapsed" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
     aria-controls="navbarSupportedContent" [attr.aria-expanded]="!isCollapsed" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
@@ -8,9 +8,8 @@
 <div class="collapse navbar-collapse" id="navbarSupportedContent" [ngbCollapse]="isCollapsed" >
         <ul class="navbar-nav mx-auto">
           <li class="nav-item px-5">
-            <a class="nav-link active" aria-current="page">Home</a>
+            <a class="nav-link active" aria-current="page" routerLink="">Home</a>
           </li>
-          
           <li class="nav-item px-5">
             <a class="nav-link" routerLink="/contactUs" >Contact-Us</a>
           </li>
@@ -19,7 +18,7 @@
               Product Lists
             </a>
             <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink" ngbDropdownMenu>
-              <li ngbDropdownItem><a class="dropdown-item" (click)="approvedProduct($event)" >Approved Products</a></li>
+              <li ngbDropdownItem><a class="dropdown-item" (click)="approvedProduct($event)">Approved Products</a></li>
               <li ngbDropdownItem> <a class="dropdown-item" (click)="unApprovedProduct($event)" >Unapproved Products</a></li>
               <li ngbDropdownItem><a class="dropdown-item" (click)="rejectedProduct($event)">Rejected Products</a></li>
             </ul>
@@ -29,23 +28,62 @@
               Account
             </a>
             <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink" ngbDropdownMenu>
-              <li ngbDropdownItem><a class="dropdown-item" >Profile</a></li>
-              <li ngbDropdownItem> <a class="dropdown-item"  (click)="checkSession()">Kyc <span class="material-icons" *ngIf="kycVerified">verified</span> </a></li>
+              <li ngbDropdownItem><a class="dropdown-item" (click)="profile(content)" >Profile</a></li>
+              <li ngbDropdownItem> <a class="dropdown-item"  (click)="checkKyc()" >Kyc<span class="material-icons" *ngIf="kycVerified">verified</span>
+              </a></li>
+             
               <li ngbDropdownItem><a class="dropdown-item">Something else here</a></li>
             </ul>
           </li>
-          <li class="nav-item px-5">
-            <a class="nav-link" routerLink="/contactUs" >Account</a>
+          <li class="nav-item dropdown px-5" ngbDropdown>
+            <a class="nav-link dropdown-toggle"  id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false" ngbDropdownToggle>
+              Product Lists
+            </a>
+            <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink" ngbDropdownMenu>
+              <li ngbDropdownItem><a class="dropdown-item" (click)="unSoldProducts()" >unsoldedproducts</a></li>
+              <li ngbDropdownItem> <a class="dropdown-item" (click)="soldProducts()">Sold Products</a></li>
+            </ul>
+          </li>
+          <li class="nav-item dropdown px-5" ngbDropdown>
+            <a class="nav-link dropdown-toggle"  id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false" ngbDropdownToggle>
+              Account
+            </a>
+            <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink" ngbDropdownMenu>
+              <li ngbDropdownItem><a class="dropdown-item" routerLink="/sellerPayment" >Payment</a></li>
+              <li ngbDropdownItem> <a class="dropdown-item" >Transcations</a></li>
+            </ul>
           </li>
         </ul>
       </div>
     </div>
   </nav>
-
-
+  <body class="container" *ngIf="body"> 
+    <div class=" rounded">
+  <ngb-carousel *ngIf="showCarousel" #carousel [interval]="5000" >
+      <ng-template ngbSlide>
+        <div style="height: 300px;" ><img src="../../../assets/images/slides/selling-online.jpg" alt="" class="" width="100%">
+        </div>
+      </ng-template>
+      <ng-template ngbSlide>
+        <div   style="height: 300px;" ><img src="../../../assets/images/slides/HireSalesGraphic.jpg" alt="" class="" width="100%" >
+        </div>
+      </ng-template>
+    </ngb-carousel>
+  </div>
+  <div class="w-25 h-50" >
+    <div class="card  text-center-end text-white">
+      <img src="/assets/images/home/card-image.jpg" alt="" class="card-img"  > 
+      <div class="card-body mt-5 card-img-overlay">
+        <h5 class="card-title">Special Selling Ecommerce</h5>
+        <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+        <a routerLink="/addProduct" class="btn btn-primary btn-lg">Start Now</a>
+      </div>
+    </div>
+  </div>
+ </body>
   <div class="container"  *ngIf="productList">
     <table class="table table-striped table-bordered">
-        <thead>
+        <thead> <h2>Mobile</h2>
       <tr class="table-warning h6">
         <th>S.No</th>
         <th>productSelected</th>
@@ -54,27 +92,171 @@
         <th>mobileStorage</th>
         <th>mobileWeight</th>
         <th>mobileSize</th>
-       <th> productSpecs</th>
+       <th> Quantity</th>
        <th>mobilePrize</th>
        <th>mobileColor</th>
        <th>mobileId</th>
       </tr>
     </thead>
     <tbody>
-        <tr *ngFor="let appravol of approvals;let i=index" class="table-primary">
+        <tr *ngFor="let appravol of mobileApprovals;let i=index" class="table-primary">
             <td>{{i+1}}</td>
-            <td>{{appravol.productSelected}}</td>
+            <td>{{appravol.selectProduct}}</td>
             <td>{{appravol.mobileModel}}</td>
             <td>{{appravol.mobileRam}}</td>
             <td>{{appravol.mobileStorage}}</td>
             <td>{{appravol.mobileWeight}}</td>
             <td>{{appravol.mobileSize}}</td>
-            <td>{{appravol.productSpecs}}</td>
+            <td>{{appravol.quantity}}</td>
             <td>{{appravol.mobilePrize}}</td>
             <td>{{appravol.mobileColor}}</td>
             <td>{{appravol.mobileId}}</td>
         </tr>
-    </tbody>
+    </tbody>  
     </table>
+           <table class="table table-striped table-bordered">
+      <thead><h2>Dress</h2>
+    <tr class="table-warning h6">
+      <th>S.No</th>
+      <th>productSelected</th>
+      <th>productType</th>
+      <th>productModel</th>
+      <th>productName</th>
+      <th>productsize</th>
+      <th>productColour</th>
+     <th> productQuantity</th>
+     <th>productPrize</th>
+     
+    </tr>
+  </thead>
+  <tbody>
+      <tr *ngFor="let appravol of dressApprovals;let i=index" class="table-primary">
+          <td>{{i+1}}</td>
+          <td>{{appravol.selectProduct}}</td>
+          <td>{{appravol.selectGender}}</td>  
+          <td>{{appravol.selectProductModel}}</td> 
+          <td>{{appravol.productName}}</td>  
+          <td>{{appravol.dressSize}}</td>  
+          <td>{{appravol.dressColour}}</td>   
+          <td>{{appravol.quantity}}</td>  
+          <td>{{appravol.productPrize}}</td>  
+      </tr>
+  </tbody>
+    </table>
+  </div>
+  <ng-template #content let-offcanvas>
+    <div class="offcanvas-header">
+      <h4 class="offcanvas-title">PROFILE</h4>
+      <button type="button" class="btn-close" aria-label="Close" (click)="offcanvas.dismiss('Cross click')"></button>
     </div>
-   
+    <div class="offcanvas-body">
+      <div *ngIf="checkProfile"> 
+     <div *ngFor="let verifiedList of this.verifiedLists">
+                   <h4>balance:{{verifiedList.balance}}</h4>
+              <h2 class="text-secondary"> Personal Details</h2>
+                      <li class="fs-5" > Full Name:{{verifiedList.FullName}}</li>
+                      <li class="fs-5"> Email :{{verifiedList.Email}}</li>
+                      <li class="fs-5">Address :{{verifiedList.Address}}</li>
+                      <li class="fs-5">PhoneNumber :{{verifiedList.PhoneNumber}}</li>
+                      <h2 class="text-secondary">Company Details</h2>
+                      <li class="fs-5"> Company Name:{{verifiedList.CompanyName}}</li>
+                      <li class="fs-5"> Company Email :{{verifiedList.CompanyEmail}}</li>
+                      <li class="fs-5"> Company  Address :{{verifiedList.CompanyAddress}}</li>
+                      <li class="fs-5">Company PhoneNumber :{{verifiedList.CompanyPhoneNumber}}</li>
+                      <li class="fs-5">GST Number :{{verifiedList.GstNum}}</li>
+                      <li class="fs-5">Country :{{verifiedList.Country}}</li>
+                      <li class="fs-5">State :{{verifiedList.State}}</li>
+                      <h2 class="text-secondary">Bank Details</h2>
+                      <li class="fs-5"> Name In Bank:{{verifiedList.FullNameBank}}</li>
+                      <li class="fs-5"> Bank Account Number :{{verifiedList.BankAccountNumber}}</li>
+                      <li class="fs-5">Bank Name :{{verifiedList.BankName}}</li>
+                      <li class="fs-5">Bank Phone Number :{{verifiedList.BankPhoneNumber}}</li>
+                      <li class="fs-5">IFSC:{{verifiedList.Ifsc}}</li>
+                      <li class="fs-5">Branch:{{verifiedList.Branch}}</li>
+            </div>
+          </div>
+         <div class="text-end">
+          <button type="button" class="btn btn-outline-dark" (click)="offcanvas.close('Close click')">Close</button>
+        </div>
+        </div>
+      </ng-template>
+        <div *ngIf="unSoldView">
+          <table class="table table-striped table-bordered">
+            <thead>
+              <tr>
+                <th>Select Product</th>
+                <th>Mobile Colour</th>
+                <th>Mobile Prize</th>
+                <th>remaining Quantity</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let unSoldList of this.mobileUnSoldedProducts">
+                <td>{{unSoldList.selectProduct}}</td>
+                <td>{{unSoldList.mobileColor}}</td>
+                <td>{{unSoldList.mobilePrize}}</td>
+                <td>{{unSoldList.remainingQuantity}}</td>
+              </tr>
+            </tbody>
+          </table>
+      </div>
+      <div *ngIf="soldView">
+        <h3>mobile</h3>
+        <table class="table table-striped table-bordered">
+          <thead>
+            <tr>
+              <th>Select Product</th>
+              <th>Mobile Colour</th>
+              <th>Quantity</th>
+              <th>Mobile Prize</th>
+              <th>total</th>
+            </tr>
+           
+          </thead>
+         
+          <tbody>
+            <tr *ngFor="let soldList of this.mobileSoldedProducts">
+              <td>{{soldList.selectProduct}}</td>
+              <td>{{soldList.mobileColor}}</td>
+              <td>{{soldList.soldQuantity}}</td>
+              <td>{{soldList.mobilePrize}}</td>
+              <td >{{(soldList.soldQuantity)*(soldList.mobilePrize)}}</td>
+            </tr>
+            <tr>
+              <td colspan="4">total</td>
+              <td>{{this.mobileGrandTotal}}</td>
+             </tr>
+          </tbody>
+        </table>
+        <h3>dress</h3>
+        <table class="table table-striped table-bordered">
+          <thead>
+            <tr>
+              <th>Selec Product</th>
+              <th>product Type</th>
+              <th>dress Size</th>
+              <th>Dress colour</th>
+              <th>Quantity</th>
+              <th>Prize</th>
+              <th>totall</th>
+            </tr>
+           
+          </thead>
+         
+          <tbody>
+            <tr *ngFor="let soldList of this.dressSoldedProducts">
+              <td>{{soldList.selectProduct}}</td>
+              <td>{{soldList.selectProductModel}}</td>
+              <td>{{soldList.dressSize}}</td>
+              <td>{{soldList.dressColour}}</td>
+              <td>{{soldList.quantity}}</td>
+              <td>{{soldList.productPrize}}</td>
+              <td >{{(soldList.quantity)*(soldList.productPrize)}}</td>
+            </tr>
+            <tr>
+              <td colspan="6">total</td>
+              <td>{{this.dressGrandTotal}}</td>
+             </tr>
+          </tbody>
+        </table>
+    </div>

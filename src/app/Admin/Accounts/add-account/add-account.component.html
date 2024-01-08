@@ -1,0 +1,41 @@
+<div class="container">
+    <h2>Add Account</h2>
+    <div class="row mt-4">
+        <div class="col">Name</div>
+        <div class="col"><input type="text" name="userName" [(ngModel)]="userName" class="form-control" /></div>
+    </div>
+    <div class="row mt-4">
+        <div class="col">Mobile</div>
+        <div class="col"><input type="text" name="mobile" [(ngModel)]="mobile" class="form-control"/></div>
+    </div>
+    <div class="row mt-4">
+        <div class="col">Account Number</div>
+        <div class="col"><input type="text" name="accNo"  [(ngModel)]="accNo" class="form-control"/></div>
+    </div>
+    <div class="row mt-4">
+        <div class="col">Balance</div>
+        <div class="col"><input type="text" name="balance" [(ngModel)]="balance" class="form-control"/></div>
+    </div>
+    <div class="row mt-4">
+        <div class="col">Bank Name</div>
+        <div class="col"><input type="text" name="bnkName" [(ngModel)]="bankName" class="form-control"/></div>
+    </div>
+    <div class="row mt-4">
+        <div class="col">Pin Number</div>
+        <div class="col"><input type="number" name="pinNo" [(ngModel)]="pinNo" class="form-control"/></div>
+    </div>
+    <div class="row mt-4">
+        <div class="col">Confirm Pin</div>
+        <div class="col"><input type="number" name="cfPinNo" [(ngModel)]="cfPinNo" class="form-control"/></div>
+    </div>
+    <div class="row mt-4">
+        <div class="col"></div>
+        <div class="col">
+            <button type="button" class="btn btn-success" (click)="addAccount()" >Add Account</button>
+            <button type="button" class="btn btn-secondary">Cancel</button>
+        </div>
+    </div>
+    <div class="row mt-4">
+        <div class="col">{{msg}}</div>
+    </div>
+</div>

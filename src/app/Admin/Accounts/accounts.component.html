@@ -1,0 +1,17 @@
+<div class="row">
+ <div class="col" >
+    SavedAccounts 
+ </div>
+ <div class="col" >
+     <!-- <select name="" id="" class="form-select" >
+        <option value="" *ngFor="let acc of this.adminAccounts" >{{acc.accNo}}</option>
+     </select> -->
+     <ul *ngFor="let acc of this.adminAccounts">
+   <li>{{acc.accNo}}</li>
+   <li>{{acc.balance}}</li>
+</ul>
+ </div>
+</div>
+  <div>
+   <button type="button" class="btn btn-primary" routerLink="/addAccount" >Add new Account </button>
+  </div>

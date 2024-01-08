@@ -1,0 +1,22 @@
+.red{
+    color: red;
+}
+.green{
+    color: green;
+}
+.red1{
+    color: red;
+}
+.red1::before{
+    color: red;
+    font-size: 16px;
+    content:'-'
+}
+.green1{
+    color: green;
+}
+.green1::before{
+    color: green;
+    font-size: 16px;
+    content:'+'
+}

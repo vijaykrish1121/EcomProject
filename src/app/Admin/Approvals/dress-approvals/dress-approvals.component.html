@@ -1,0 +1,68 @@
+<div class="container">
+    <table class="table table-striped table-bordered">
+        <thead>
+      <tr class="table-warning h6">
+        <th>S.No</th>
+        <th>sellerId</th>
+        <th>productSelected</th>
+        <th>productType</th>
+        <th>productModel</th>
+        <th>productName</th>
+        <th>productsize</th>
+        <th>productColour</th>
+       <th> productQuantity</th>
+       <th>productPrize</th>
+       <th colspan="3">Status</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let appravol of approvals;let i=index" class="table-primary">
+            <td>{{i+1}}</td>
+            <td>{{appravol.sellerId}}</td>
+            <td>{{appravol.selectProduct}}</td>
+            <td>{{appravol.selectProduct}}</td>
+            <td>{{appravol.selectProductModel}}</td>
+            <td>{{appravol.productName}}</td>
+            <td>{{appravol.dressSize}}</td>
+            <td>{{appravol.dressColour}}</td>
+            <td>{{appravol.quantity}}</td>
+            <td>{{appravol.productPrize}}</td>
+            <td><button type="button" class="btn btn-primary" (click)="viewFullDetail(appravol.id,content)" >view details</button></td>
+            <td><button type="button" class="btn btn-success" (click)="approveProduct(appravol)" >Approve</button></td>
+            <td><button type="button" class="btn btn-danger" (click)="rejectProduct(appravol)">Reject</button></td>
+        </tr>
+    </tbody>
+    </table>
+    </div>
+
+    <ng-template #content let-modal>
+      <div class="modal-header">
+        <h4 class="modal-title">Seller Details</h4>
+        <button type="button" class="btn-close" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
+      </div>
+      <div class="modal-body">
+     <div *ngIf="viewDetail"> 
+          <ul *ngFor="let detail of this.dressDetail">
+<li>{{detail.selectProduct}}</li>
+<li>{{detail.selectGender}}</li>
+<li>{{detail.selectProductModel}} </li> 
+<li>{{detail.productName}}</li>
+<li>{{detail.dressSize}} </li>
+<li>{{detail.dressColour }} </li> 
+<li>{{detail.productId }}</li>          
+<li>{{detail.quantity}} </li>     
+<li>{{detail.quality}} </li>  
+<li>{{detail.itemWeight}} </li>
+<li>{{detail.productOrigin }}</li>
+<li>{{detail.productPrize }}</li> 
+<div class="mx-auto d-flex justify-content-around">
+<div><button type="button" class="btn btn-danger" (click)="rejectProduct(detail)">Reject</button></div>
+<div><button type="button" class="btn btn-success" (click)="approveProduct(detail)" >Approve</button></div>
+</div> 
+          </ul>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" (click)="modal.close('Close click')">Close</button>
+      </div>
+  </ng-template>

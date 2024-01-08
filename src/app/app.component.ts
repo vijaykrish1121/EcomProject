@@ -8,7 +8,14 @@ import { Component } from '@angular/core';
 export class AppComponent {
   title = 'my-first-project';
 
-
- 
-
+// id:String=''
+//  products:string=''
+//    chooseProduct(){
+//    if(this.products=='rice'){
+//        this.id='101'
+//    }
+//     if(this.products=='oil'){
+//       this.id='102'
+//     }
+//    }
 }

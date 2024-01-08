@@ -1,0 +1,14 @@
+<div>
+    <ul *ngFor="let detail of details;let i=index">
+     <div class="row">
+      <div class="col"> <th>{{i+1}}.{{detail.timeStamp}}</th> </div>
+      <div class="col"><th>{{detail.FundRelesed}}</th></div>
+    </div>
+        <li >{{detail.sellerId}}</li>
+        <li>{{detail.quantity}}</li>
+        <li>{{detail.totalCost}}</li>
+        <li>{{detail.productName}}</li>
+        <li>{{detail.specification}}</li>
+        <li>{{detail.mobileColour}}</li>
+    </ul>
+></div>

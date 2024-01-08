@@ -8,29 +8,39 @@ import { ApiService } from 'src/app/service/api.service';
   styleUrls: ['./login.component.scss']
 })
 export class LoginComponent {
-  userName:string=''
+  email:string=''
   password:string=''
   msg:string=''
+  selectType:string=''
   details:any[]=[]
   constructor( private apiService:ApiService,private router:Router){}
     getUser(){
-      if(this.userName!='' && this.password!='' ){
+      if(this.email!='' && this.password!='' ){
        this.apiService.getApiData(ApiUrls.userApi).subscribe((response:any) =>{
         console.log(response);
         this.details=response
         for(let detail of this. details){
-        if(this.userName== detail.userName && this.password==detail.password ){
-          sessionStorage.setItem("user",detail.phoneNum)
+        if(this.email== detail.email && this.password==detail.password ){
+          if(detail.userStatus=='user'){
+            sessionStorage.setItem("user",detail.phoneNum)
           this.router.navigate(['/'])
-          this.apiService.loginstatus=true;
+          this.apiService.loginstatus=true;}
+          if(detail.userStatus=='seller'){
+            sessionStorage.setItem("seller",detail.phoneNum)
+            this.router.navigate(['sellerDashboard'])
+          }
+          if(detail.userStatus=='admin'){
+            sessionStorage.setItem("admin",detail.phoneNum)
+            this.router.navigate(['adminDashboard'])
+          }
     }
     else
-      this.msg='username or password is incorrect' 
+      this.msg='Email or password is incorrect' 
   }
        } 
        )
                       }
                       else
-                         this.msg='username and password is missing'
+                         this.msg='Email and password is missing'
                     }
 }

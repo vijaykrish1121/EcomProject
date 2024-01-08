@@ -9,9 +9,20 @@ import { FooterComponent } from './user/footer/footer.component';
 import { SellerRegistrationComponent } from './Seller/seller-registration/seller-registration.component';
 import { DashboardComponent } from './Seller/dashboard/dashboard.component';
 import { AddproductComponent } from './Seller/addproduct/addproduct.component';
-import { AppravolComponent } from './Admin/appravol/appravol.component';
 import { AdminDashboardComponent } from './Admin/admin-dashboard/admin-dashboard.component';
 import { SellerProfileComponent } from './Seller/seller-profile/seller-profile.component';
+import { AddAccountComponent } from './Admin/Accounts/add-account/add-account.component';
+import { MobileApprovalsComponent } from './Admin/Approvals/mobile-approvals/mobile-approvals.component';
+import { DressApprovalsComponent } from './Admin/Approvals/dress-approvals/dress-approvals.component';
+import { ViewProductComponent } from './user/view-product/view-product.component';
+import { CheckoutComponent } from './user/checkout/checkout.component';
+import { PaymentComponent } from './Seller/payment/payment.component';
+import { PendingPaymentsComponent } from './Admin/pending-payments/pending-payments.component';
+import { TranscationComponent } from './Admin/transcation/transcation.component';
+import { ViewDressproductComponent } from './user/view-dressproduct/view-dressproduct.component';
+
+
+
 const routes: Routes = [
   {path:'',component:HomeComponent},
   {path:'login',component:LoginComponent},
@@ -22,9 +33,19 @@ const routes: Routes = [
   {path:'sellerRegister',component:SellerRegistrationComponent},
   {path:'sellerDashboard',component:DashboardComponent},
   {path:'addProduct',component:AddproductComponent},
-  {path:'approval',component:AppravolComponent},
   {path:'adminDashboard',component:AdminDashboardComponent},
-  {path:'sellerProfile',component:SellerProfileComponent}
+  {path:'sellerProfile',component:SellerProfileComponent},
+  {path:'addAccount',component:AddAccountComponent},
+  {path:'mobile',component:MobileApprovalsComponent},
+  {path:'dress',component:DressApprovalsComponent},
+  {path:'viewProduct',component:ViewProductComponent},
+  {path:'checkOut',component:CheckoutComponent},
+  {path:'sellerPayment',component:PaymentComponent},
+  {path:'pendingPayments',component:PendingPaymentsComponent},
+  {path:'transcation',component:TranscationComponent},
+  {path:'viewDressProduct',component:ViewDressproductComponent}
+
+
 ];
 
 @NgModule({

@@ -22,7 +22,8 @@ export class SellerRegistrationComponent implements OnInit {
   isFirstFormGroupSubmit:boolean=false
   isSecondFormGroupSubmit:boolean=false
   isThirdFormGroupSubmit:boolean=false
-
+users:any=[]
+user:string=''
    firstFormGroupSubmit():void{
     this.isFirstFormGroupSubmit=true
          if(this.firstFormGroup.valid){}
@@ -44,6 +45,9 @@ export class SellerRegistrationComponent implements OnInit {
    this.firstFormGroup=this.getFirstFormGroup();
    this.secondFormGroup=this.getSecondFormGroup();
    this.thirdFormGroup=this.getThirdFormGroup();
+    this.checkSession()
+     this.verifiedStatus()
+   
   }
   getFirstFormGroup(){
  return new FormGroup({
@@ -74,60 +78,32 @@ return new FormGroup({
  branch:new FormControl('', [Validators.required]),
   });
 }
-
-
+       checkSession(){
+        this. user=sessionStorage.getItem('seller')||''
+        if(this.user==''){
+          alert('login and continue')
+          this.router.navigate([''])
+        }
+       
+       }
+       verifiedStatus(){
+       this.apiservice.filterApi(ApiUrls.sellerDetailsApi,'KycStatus=approved').subscribe((response)=>
+       {
+        this. users=response
+        for(let userdetail of this. users){
+          if(this.user==userdetail.userId){
+          alert('already registered')
+          this.router.navigate(['sellerDashboard'])
+         } 
+        }
+       }
+       )
+       }
    addSellerDetails(){ 
    this.isThirdFormGroupSubmit=true
     console.log(this.firstFormGroup.get('fullName')?.errors);
-    // console.log(this.myFormGroup.get('fullName').errors)
-    if(this.thirdFormGroup.valid){
-      //     sessionStorage.setItem('user',this.firstFormGroup.get('phoneNum')?.value)
-      // let SellerPersonalDetail={
-      //     FullName:this.firstFormGroup.get('fullName')?.value,
-      //     Email:this.firstFormGroup.get('email')?.value,
-      //     Password:this.firstFormGroup.get('password')?.value,
-      //     PhoneNumber:this.firstFormGroup.get('phoneNum')?.value,
-      //     Address:this.firstFormGroup.get('address')?.value,
-      //    KycStatus:'pending'
-      //   }
-      //   let SellerCompanyDetail={
-      //           CompanyName:this.secondFormGroup.get('companyName')?.value,
-      //           CompanyEmail:this.secondFormGroup.get('companyEmail')?.value,
-      //           CompanyAddress:this.secondFormGroup.get('companyAddress')?.value,
-      //           CompanyPhoneNum:this.secondFormGroup.get('companyPhoneNum')?.value,
-      //           GstNum:this.secondFormGroup.get('gstNum')?.value,
-      //           Country:this.secondFormGroup.get('country')?.value,
-      //           State:this.secondFormGroup.get('state')?.value,
-      //           KycStatus:'pending'
-      //       }
-      //       let SellerBankDetail={
-      //                FullNameBank:this.thirdFormGroup.get('fullNameBank')?.value,
-      //                BankPhoneNUmber:this.thirdFormGroup.get('bankPhoneNum')?.value,
-      //                BankName:this.thirdFormGroup.get('bankName')?.value,
-      //               BankAccountNumber:this.thirdFormGroup.get('bankAccountNumber')?.value,
-      //               Ifsc  :this.thirdFormGroup.get('ifsc')?.value,
-      //               Branch:this.thirdFormGroup.get('branch')?.value,
-      //              KycStatus:'pending'
-      //           }     
-      //                   this.apiservice.postAPiData(ApiUrls.SellerPersonaDetailsApi,SellerPersonalDetail).subscribe(
-      //         (response)=>{
-      //             console.log('response1',response);
-      //             this.apiservice.postAPiData(ApiUrls.SellerCompanyDetailsApi,SellerCompanyDetail).subscribe((res2)=>{
-      //               console.log('responce2',res2);
-      //               this.apiservice.postAPiData(ApiUrls.SellerBankDetailsApi,SellerBankDetail).subscribe((response)=>{
-      //                 console.log('responce3',response)},
-      //                 err=>{console.log(err);}
-      //                );
-      //             },
-      //             err=>{console.log(err);});
-      //         },
-      //       err=>{
-      //         console.log(err);
-      //       }
-      //     );
-      //     sessionStorage.setItem('userMobile',this.firstFormGroup.get('password')?.value)
-      //     this.router.navigate(['sellerDashboard'])
-      //   }    
+    let seller=sessionStorage.getItem('seller')  ||''
+    if(this.thirdFormGroup.valid){ 
       let SellerDetails={
           FullName:this.firstFormGroup.get('fullName')?.value,
           Email:this.firstFormGroup.get('email')?.value,
@@ -147,20 +123,24 @@ return new FormGroup({
           BankAccountNumber:this.thirdFormGroup.get('bankAccountNumber')?.value,
           Ifsc  :this.thirdFormGroup.get('ifsc')?.value,
           Branch:this.thirdFormGroup.get('branch')?.value,
-          KycStatus:'pending'
+          sellerId:seller,
+          KycStatus:'pending',
+          balance:0
       }
+
           this.apiservice.postAPiData(ApiUrls.sellerDetailsApi,SellerDetails).subscribe((response:any)=>
           {
             console.log(response);
             
           }
           )
+            alert('registered sucessfully')
               this.router.navigate(['sellerDashboard'])
     }   
   
            else
            alert('fill the field correctly')
-   
+
 
 }
 }
