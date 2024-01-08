@@ -5,7 +5,7 @@
            <div class="d-flex justify-content-center"> <h2 >Mobiles</h2></div>
                 <div class="col" *ngFor="let approved of this.approvedProductMobileLists">
                   <a (click)="viewProduct(approved.id)"><div class="card" style="width: 18rem;">
-                        <img src="../../../assets/images/home/card-image.jpg" class="card-img-top" alt="...">
+                        <img src="/assets/images/home/card-image.jpg" class="card-img-top" alt="...">
                         <div class="card-body">
                           <p class="card-text">{{approved.selectProduct}}</p>
                         </div>
@@ -17,7 +17,7 @@
             <div class="d-flex justify-content-center"> <h2 >Dresses</h2></div>
                  <div class="col" *ngFor="let approved of this.approvedProductDressLists">
                   <a (click)="viewDressProduct(approved.id)"> <div class="card" style="width: 18rem;">
-                         <img src="../../../assets/images/home/card-image.jpg" class="card-img-top" alt="...">
+                         <img src="/assets/images/home/card-image.jpg" class="card-img-top" alt="...">
                          <div class="card-body">
                            <p class="card-text">{{approved.productName}}</p>
                          </div>

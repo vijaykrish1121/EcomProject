@@ -3,7 +3,7 @@ import { Router } from '@angular/router';
 import { data } from 'jquery';
 import { ApiUrls } from 'src/app/common/apiUrls';
 import { ApiService } from 'src/app/service/api.service';
-import { DashboardComponent } from '../dashboard/dashboard.component';
+// import { DashboardComponent } from '/dashboard/dashboard.component';
 import { OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 
