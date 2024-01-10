@@ -20,7 +20,7 @@ export class LoginComponent {
         console.log(response);
         this.details=response
         for(let detail of this. details){
-        if(this.email== detail.email && this.password==detail.password ){
+        if(this.email== detail.email && this.password==detail.password && this.selectType==detail.userStatus ){
           if(detail.userStatus=='user'){
             sessionStorage.setItem("user",detail.phoneNum)
           this.router.navigate(['/'])

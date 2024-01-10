@@ -20,6 +20,7 @@ export class DashboardComponent implements OnInit {
   ngOnInit(): void {
     this.checkSession()
   }
+  loginStatus=false
   showCarousel=true
    productList:boolean=false;
    verifiedLists:any=[]
@@ -46,9 +47,24 @@ total:number=0
 mobileGrandTotal:number=0
 dressGrandTotal:number=0
 detail:any=[]
+logout() {
+  sessionStorage.removeItem('seller')
+   this.loginStatus= false
+}
+  login(){
+    this.routes.navigate(['login'])
+    this.loginStatus=true
+   
+  }
 
 checkSession(){
   this.seller=sessionStorage.getItem('seller') ||''
+if(this.seller==''){
+  this.loginStatus=false
+}
+else
+this.loginStatus=true
+
 }
   onClickView(option:string){
     if(option=='add'){

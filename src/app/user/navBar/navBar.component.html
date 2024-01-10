@@ -34,8 +34,8 @@
         <button class="btn btn-outline-success" type="submit">Search</button>
       </form>
       <div class="d-flex p-3">
-        <button class="btn btn-outline-success me-2" type="button"   *ngIf="!apiservice.loginstatus" (click)="login()">Login</button>
-        <button class="btn btn-outline-success" type="button" *ngIf="apiservice.loginstatus" (click)="logout()">Logout</button>
+        <button class="btn btn-outline-success me-2" type="button"   *ngIf="!loginStatus" (click)="login()">Login</button>
+        <button class="btn btn-outline-success" type="button" *ngIf="loginStatus" (click)="logout()">Logout</button>
       </div>
     </div>
   </div>

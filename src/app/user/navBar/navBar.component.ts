@@ -20,6 +20,7 @@ let user=sessionStorage.getItem('user') ||''
   }
   constructor(public apiservice:ApiService,private router:Router){ }
   val:string=''
+  loginStatus=false
 logout() {
   sessionStorage.removeItem('user')
    this.apiservice.loginstatus= false
@@ -34,9 +35,10 @@ logout() {
   checkSession(){
     this. val = sessionStorage.getItem('user') || ""
     if(this.val==''){
-       alert('session Expired')
-       this.router.navigate(['login'])
+      this.loginStatus=false
+       alert('session Expired Login and Continue')
     }
-    return true;
+    else
+    this.loginStatus=true
   }
 }

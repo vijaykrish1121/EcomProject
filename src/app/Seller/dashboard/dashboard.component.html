@@ -53,6 +53,10 @@
               <li ngbDropdownItem> <a class="dropdown-item" >Transcations</a></li>
             </ul>
           </li>
+          <li class="d-flex ">
+            <button class="btn btn-outline-success " type="button"   *ngIf="!loginStatus" (click)="login()">Login</button>
+            <button class="btn btn-outline-success" type="button" *ngIf="loginStatus" (click)="logout()">Logout</button>
+          </li>
         </ul>
       </div>
     </div>
