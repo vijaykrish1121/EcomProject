@@ -2,7 +2,7 @@
 <header id="header">
     <app-nav-bar></app-nav-bar>
 </header>
- <div class="container" >
+ <div class="container-fluid" >
   <div class="rounded">
     <ngb-carousel *ngIf="showCarousel" #carousel [interval]="5000" >
         <ng-template ngbSlide>
@@ -15,53 +15,7 @@
         </ng-template>
       </ngb-carousel>
     </div>
-    <div class="container">
-      <!-- <div class="row g-3 m-3">
-        <div class="col-6 col-md-6 col-lg-3" *ngFor="let approved of this.approvedProductMobileLists">
-          <div class="card" >
-            <a (click)="viewMobileProduct(approved.id)">
-            <img [src]="approved.mobileImage" alt="" class="card-img-top">
-            <div class="card-body">
-              <h3 class="card-title fw-bold">{{approved.selectProduct}}</h3>
-                  <h4 class="fw-bolder">{{approved.mobileModel}}</h4>
-                  <p class="card-text">({{approved.mobileColor}},{{approved.mobileRam}}Ram,{{approved.mobileStorage}}Storage)|{{approved.mobileBattery}}battery,{{approved.processor}}</p>
-                  <p class="card-text fw-bold">₹{{approved.mobilePrize}}</p>
-          </div>
-            </a>
-        </div>
-      </div>
-    </div>
-    <div class="row g-3 m-3">
-      <div class="col-6 col-md-6 col-lg-3" *ngFor="let approved of this.approvedProductDressLists">
-        <div class="card" >
-          <a (click)=" viewDressProduct(approved.id)">
-          <img [src]="approved.dressImage" alt="" class="card-img-top">
-          <div class="card-body">
-            <h3 class="card-title fw-bold">{{approved.productName}}</h3>
-                <h4 class="fw-bolder">{{approved.dressSize}}</h4>
-                <p class="card-text">{{approved.dressColor}}</p>
-                <h4 class="fw-bolder">{{approved.productPrize}}</h4>
-           
-        </div>
-          </a>
-      </div>
-    </div>
-  </div>
-    </div>
-   -->
-   <!-- <div class="card-list" >
-    <a  (click)="viewMobileProduct(approved.id)" class="card-item" *ngFor="let approved of this.approvedProductMobileLists">
-        <img [src]="approved.mobileImage" alt="Card Image">
-        <span class="developer">Developer</span>
-        <h3 class="card-title fw-bold">{{approved.selectProduct}}</h3>
-                  <h4 class="fw-bolder">{{approved.mobileModel}}</h4>
-                  <p class="card-text">({{approved.mobileColor}},{{approved.mobileRam}}Ram,{{approved.mobileStorage}}Storage)|{{approved.mobileBattery}}battery,{{approved.processor}}</p>
-                  <p class="card-text fw-bold">₹{{approved.mobilePrize}}</p>
-        <div class="arrow">
-            <i class="fas fa-arrow-right card-icon"></i>
-        </div>
-    </a>
-   </div> -->
+    <div class="container-fluid">
    <div class="container-fluid">
     <div class="row row-cols-2 row-cols-md-4 mt-3">
         <div class="col mb-4"  *ngFor="let approved of this.approvedProductMobileLists">
@@ -72,9 +26,9 @@
                   <h4 class="fw-bolder">{{approved.mobileModel}}</h4>
                   <p class="card-text">({{approved.mobileColor}},{{approved.mobileRam}}Ram,{{approved.mobileStorage}}Storage)|{{approved.mobileBattery}}battery,{{approved.processor}}</p>
                   <p class="card-text fw-bold">₹{{approved.mobilePrize}}</p>
-       
             </div>
         </div>
+      
     </div>
   </div>
   <div class="row row-cols-2 row-cols-md-4 mt-3">
@@ -82,20 +36,23 @@
         <div class="card h-100"> 
             <img [src]="approved.dressImage" class="card-img-top">
             <div class="card-body">
-              
               <h3 class="card-title fw-bold">{{approved.productName}}</h3>
               <h4 class="fw-bolder">{{approved.dressSize}}</h4>
               <p class="card-text">{{approved.dressColor}}</p>
               <h4 class="fw-bolder">₹{{approved.productPrize}}</h4>
         </div>
     </div>
+  
 </div>
 </div>
+</div>
+    </div>
+ </div>
  <div class="footer">
      <app-footer></app-footer>
     </div>
 
-</div>
+
   
  
  

@@ -14,10 +14,11 @@ export class ApiService {
   loginstatus:boolean=false
  
 
-   //private baseUrl= 'https://retoolapi.dev/YTLid1/imageApi';
+  // private baseUrl= 'https://retoolapi.dev/YTLid1/imageApi';
    //private baseUrl= 'https://file.io';
-   private baseUrl ='https://api.escuelajs.co/api/v1/files/upload';
-   
+    private baseUrl ='https://api.escuelajs.co/api/v1/files/upload';
+
+    
   
   constructor(private httpclient:HttpClient) {}
  getApiData(url:string){
