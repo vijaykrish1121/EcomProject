@@ -35,6 +35,8 @@ import { PaymentComponent } from './Seller/payment/payment.component';
 import { PendingPaymentsComponent } from './Admin/pending-payments/pending-payments.component';
 import { TranscationComponent } from './Admin/transcation/transcation.component';
 import { ViewDressproductComponent } from './user/view-dressproduct/view-dressproduct.component';
+import { RejectedProductsComponent } from './Admin/rejected-products/rejected-products.component';
+import { AddCartComponent } from './user/add-cart/add-cart.component';
 
 
 
@@ -66,6 +68,8 @@ import { ViewDressproductComponent } from './user/view-dressproduct/view-dresspr
      PendingPaymentsComponent,
      TranscationComponent,
      ViewDressproductComponent,
+     RejectedProductsComponent,
+     AddCartComponent,
     
   ],
   imports: [

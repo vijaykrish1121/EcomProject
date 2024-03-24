@@ -1,0 +1,32 @@
+<div class="container" >
+    <table class="table table-striped table-bordered">
+        <thead>
+      <tr class="table-warning h6">
+        <th>S.No</th>
+        <th>Seller Id</th>
+        <th>productSelected</th>
+        <th>mobileModel</th>
+        <th>Ram/Rom</th>
+       <th>mobilePrize</th>
+       <th>mobileColor</th>
+       <th>mobileId</th>
+       <th>Date/Time</th>
+       <th colspan="4">Status</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let rejectedProduct of rejectedProducts;let i=index" class="table-primary">
+            <td>{{i+1}}</td>
+            <td>{{rejectedProduct.sellerId}}</td>
+            <td>{{rejectedProduct.selectProduct}}</td>
+            <td>{{rejectedProduct.mobileModel}}</td>
+            <td>{{rejectedProduct.mobileRam}}/{{rejectedProduct.mobileStorage}}</td>
+            <td>{{rejectedProduct.mobilePrize}}</td>
+            <td>{{rejectedProduct.mobileColor}}</td>
+            <td>{{rejectedProduct.mobileId}}</td>
+            <td>{{rejectedProduct.timeStamp}}</td>
+           <td>{{rejectedProduct.status}}</td>
+        </tr>
+    </tbody>
+    </table>
+    </div>

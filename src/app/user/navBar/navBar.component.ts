@@ -2,20 +2,21 @@ import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { ApiService } from 'src/app/service/api.service';
 import { OnInit } from '@angular/core';
+import { ApiUrls } from 'src/app/common/apiUrls';
 @Component({
   selector: 'app-nav-bar',
   templateUrl: './navBar.component.html',
   styleUrls: ['./navBar.component.scss']
 })
 export class NavBarComponent implements OnInit {
-   
+  user:any=[] 
   ngOnInit(): void {
-let user=sessionStorage.getItem('user') ||''
-    if(user==''){
-      this.apiservice.loginstatus=false
+this. user=sessionStorage.getItem('user') ||''
+    if(this.user==''){
+      this.loginStatus=false
     }
     else
-    this.apiservice.loginstatus=true
+    this.loginStatus=true
     
   }
   constructor(public apiservice:ApiService,private router:Router){ }
@@ -41,4 +42,5 @@ logout() {
     else
     this.loginStatus=true
   }
+
 }

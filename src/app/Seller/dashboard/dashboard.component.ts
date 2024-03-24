@@ -68,7 +68,6 @@ this.loginStatus=true
 }
   onClickView(option:string){
     if(option=='add'){
-      this.products=false
       this.body=true
     }
     else
@@ -143,6 +142,8 @@ this.loginStatus=true
       if(this.seller!=''){
       if(event.target===event.currentTarget ){
      this.productList=true
+     this.soldView=false
+     this.unSoldView=false
      this.body=false
           this.apiService.filterApiDatas(ApiUrls.mobileApi,'status=approved&sellerId=',this.seller).subscribe((response)=>
           {
@@ -170,6 +171,8 @@ this.loginStatus=true
         if(event.target===event.currentTarget ){
        this.productList=true
        this.body=false
+       this.soldView=false
+       this.unSoldView=false
             this.apiService.filterApiDatas(ApiUrls.mobileApi,'status=unApproved&sellerId=',this.seller).subscribe((response)=>
             {
            
@@ -197,6 +200,8 @@ this.loginStatus=true
       if(event.target===event.currentTarget){
      this.productList=true
      this.body=false
+     this.soldView=false
+     this.unSoldView=false
      this.apiService.filterApiDatas(ApiUrls.mobileApi,'status=rejected&sellerId=',this.seller).subscribe((response)=>
      {
      
@@ -219,6 +224,8 @@ this.loginStatus=true
   }
   unSoldProducts(){
     this.unSoldView=true
+    this.soldView=false
+    this.productList=false
     this.body=false
     this.apiService.filterApiDatas(ApiUrls.mobileApi,'status=approved&sellerId=',this.seller).subscribe((response:any)=>
     {
@@ -230,6 +237,8 @@ this.loginStatus=true
     }
     soldProducts(){
       this.soldView=true
+      this.unSoldView=false
+      this.productList=false
       this.body=false
       this.apiService.filterApiDatas(ApiUrls.mobileApi,'status=approved&sellingStatus=sold&sellerId=',this.seller).subscribe((response:any)=>
       {

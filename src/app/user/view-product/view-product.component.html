@@ -1,3 +1,9 @@
+<div class="d-grid">
+<header id="header">
+       <app-nav-bar></app-nav-bar>
+   </header>
+   <body id="content">
+ 
 <div *ngIf="viewPage">
        <ul *ngFor="let product of this.viewDetail">
        <li>{{product.selectProduct}}</li>
@@ -14,4 +20,6 @@
        <button type="button" class="btn btn-primary">AddToCart</button>
        <button type="button" class="btn btn-primary" (click)="buyNow(product.id)">Buy Now</button>
        </ul>
+</div>     
+</body>
 </div>

@@ -1,29 +1,101 @@
-<header>
+<div class="d-grid" id="background">
+<header id="header">
     <app-nav-bar></app-nav-bar>
 </header>
-          <div class="row">
-           <div class="d-flex justify-content-center"> <h2 >Mobiles</h2></div>
-                <div class="col" *ngFor="let approved of this.approvedProductMobileLists">
-                  <a (click)="viewProduct(approved.id)"><div class="card" style="width: 18rem;">
-                        <img src="/assets/images/home/card-image.jpg" class="card-img-top" alt="...">
-                        <div class="card-body">
-                          <p class="card-text">{{approved.selectProduct}}</p>
-                        </div>
-                      </div>
-                    </a>
-                </div>
+ <div class="container" >
+  <div class="rounded">
+    <ngb-carousel *ngIf="showCarousel" #carousel [interval]="5000" >
+        <ng-template ngbSlide>
+          <div style="height: auto;" ><img src="/assets/images/slides/slide3.jpg" alt="" class="" width="100%">
           </div>
-          <div class="row">
-            <div class="d-flex justify-content-center"> <h2 >Dresses</h2></div>
-                 <div class="col" *ngFor="let approved of this.approvedProductDressLists">
-                  <a (click)="viewDressProduct(approved.id)"> <div class="card" style="width: 18rem;">
-                         <img src="/assets/images/home/card-image.jpg" class="card-img-top" alt="...">
-                         <div class="card-body">
-                           <p class="card-text">{{approved.productName}}</p>
-                         </div>
-                       </div>
-                  </a>
-                 </div>
-           </div>
+        </ng-template>
+        <ng-template ngbSlide>
+          <div   style="height: auto;" ><img src="/assets/images/slides/slide2.jpg" alt="" class="" width="100%" >
+          </div>
+        </ng-template>
+      </ngb-carousel>
+    </div>
+    <div class="container">
+      <!-- <div class="row g-3 m-3">
+        <div class="col-6 col-md-6 col-lg-3" *ngFor="let approved of this.approvedProductMobileLists">
+          <div class="card" >
+            <a (click)="viewMobileProduct(approved.id)">
+            <img [src]="approved.mobileImage" alt="" class="card-img-top">
+            <div class="card-body">
+              <h3 class="card-title fw-bold">{{approved.selectProduct}}</h3>
+                  <h4 class="fw-bolder">{{approved.mobileModel}}</h4>
+                  <p class="card-text">({{approved.mobileColor}},{{approved.mobileRam}}Ram,{{approved.mobileStorage}}Storage)|{{approved.mobileBattery}}battery,{{approved.processor}}</p>
+                  <p class="card-text fw-bold">₹{{approved.mobilePrize}}</p>
+          </div>
+            </a>
+        </div>
+      </div>
+    </div>
+    <div class="row g-3 m-3">
+      <div class="col-6 col-md-6 col-lg-3" *ngFor="let approved of this.approvedProductDressLists">
+        <div class="card" >
+          <a (click)=" viewDressProduct(approved.id)">
+          <img [src]="approved.dressImage" alt="" class="card-img-top">
+          <div class="card-body">
+            <h3 class="card-title fw-bold">{{approved.productName}}</h3>
+                <h4 class="fw-bolder">{{approved.dressSize}}</h4>
+                <p class="card-text">{{approved.dressColor}}</p>
+                <h4 class="fw-bolder">{{approved.productPrize}}</h4>
+           
+        </div>
+          </a>
+      </div>
+    </div>
+  </div>
+    </div>
+   -->
+   <!-- <div class="card-list" >
+    <a  (click)="viewMobileProduct(approved.id)" class="card-item" *ngFor="let approved of this.approvedProductMobileLists">
+        <img [src]="approved.mobileImage" alt="Card Image">
+        <span class="developer">Developer</span>
+        <h3 class="card-title fw-bold">{{approved.selectProduct}}</h3>
+                  <h4 class="fw-bolder">{{approved.mobileModel}}</h4>
+                  <p class="card-text">({{approved.mobileColor}},{{approved.mobileRam}}Ram,{{approved.mobileStorage}}Storage)|{{approved.mobileBattery}}battery,{{approved.processor}}</p>
+                  <p class="card-text fw-bold">₹{{approved.mobilePrize}}</p>
+        <div class="arrow">
+            <i class="fas fa-arrow-right card-icon"></i>
+        </div>
+    </a>
+   </div> -->
+   <div class="container-fluid">
+    <div class="row row-cols-2 row-cols-md-4 mt-3">
+        <div class="col mb-4"  *ngFor="let approved of this.approvedProductMobileLists">
+            <div class="card h-100"> 
+                <img [src]="approved.mobileImage" class="card-img-top">
+                <div class="card-body">
+                  <h3 class="card-title fw-bold">{{approved.selectProduct}}</h3>
+                  <h4 class="fw-bolder">{{approved.mobileModel}}</h4>
+                  <p class="card-text">({{approved.mobileColor}},{{approved.mobileRam}}Ram,{{approved.mobileStorage}}Storage)|{{approved.mobileBattery}}battery,{{approved.processor}}</p>
+                  <p class="card-text fw-bold">₹{{approved.mobilePrize}}</p>
+       
+            </div>
+        </div>
+    </div>
+  </div>
+  <div class="row row-cols-2 row-cols-md-4 mt-3">
+    <div class="col mb-4" *ngFor="let approved of this.approvedProductDressLists"  >
+        <div class="card h-100"> 
+            <img [src]="approved.dressImage" class="card-img-top">
+            <div class="card-body">
+              
+              <h3 class="card-title fw-bold">{{approved.productName}}</h3>
+              <h4 class="fw-bolder">{{approved.dressSize}}</h4>
+              <p class="card-text">{{approved.dressColor}}</p>
+              <h4 class="fw-bolder">₹{{approved.productPrize}}</h4>
+        </div>
+    </div>
+</div>
+</div>
+ <div class="footer">
+     <app-footer></app-footer>
+    </div>
 
-    <app-footer></app-footer>
+</div>
+  
+ 
+ 

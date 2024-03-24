@@ -113,14 +113,14 @@ approveSellerDetails(detail:any){
    }
 
    viewMobiles(){
-   this.apiService.filterApi(ApiUrls.addProductApi,'product=mobile&status=approved').subscribe((response)=>
+   this.apiService.filterApi(ApiUrls.mobileApi,'product=mobile&status=approved').subscribe((response)=>
    {
         this.products=response
    }
    )
    }
    viewDresses(){
-    this.apiService.filterApi(ApiUrls.addProductApi,'product=dress&status=approved').subscribe((response)=>
+    this.apiService.filterApi(ApiUrls.dressApi,'product=dress&status=approved').subscribe((response)=>
     {
          this.products=response
     }
