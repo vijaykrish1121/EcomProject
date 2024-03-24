@@ -20,13 +20,15 @@
     <div class="row row-cols-2 row-cols-md-4 mt-3">
         <div class="col mb-4"  *ngFor="let approved of this.approvedProductMobileLists">
             <div class="card h-100"> 
+              <a (click)="viewMobileProduct(approved.id)">
                 <img [src]="approved.mobileImage" class="card-img-top">
-                <div class="card-body">
+                            <div class="card-body">
                   <h3 class="card-title fw-bold">{{approved.selectProduct}}</h3>
                   <h4 class="fw-bolder">{{approved.mobileModel}}</h4>
                   <p class="card-text">({{approved.mobileColor}},{{approved.mobileRam}}Ram,{{approved.mobileStorage}}Storage)|{{approved.mobileBattery}}battery,{{approved.processor}}</p>
                   <p class="card-text fw-bold">₹{{approved.mobilePrize}}</p>
             </div>
+          </a>
         </div>
       
     </div>
@@ -34,6 +36,7 @@
   <div class="row row-cols-2 row-cols-md-4 mt-3">
     <div class="col mb-4" *ngFor="let approved of this.approvedProductDressLists"  >
         <div class="card h-100"> 
+          <a (click)="viewDressProduct(approved.id)">
             <img [src]="approved.dressImage" class="card-img-top">
             <div class="card-body">
               <h3 class="card-title fw-bold">{{approved.productName}}</h3>
@@ -41,6 +44,7 @@
               <p class="card-text">{{approved.dressColor}}</p>
               <h4 class="fw-bolder">₹{{approved.productPrize}}</h4>
         </div>
+      </a>
     </div>
   
 </div>
