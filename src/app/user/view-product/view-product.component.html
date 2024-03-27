@@ -4,8 +4,9 @@
    </header>
    <body id="content">
  
-<div *ngIf="viewPage">
+<!-- <div *ngIf="viewPage">
        <ul *ngFor="let product of this.viewDetail">
+
        <li>{{product.selectProduct}}</li>
        <li>{{product.mobileStorage}}</li>
        <li>{{product.mobilePrize}}</li>
@@ -20,6 +21,114 @@
        <button type="button" class="btn btn-primary">AddToCart</button>
        <button type="button" class="btn btn-primary" (click)="buyNow(product.id)">Buy Now</button>
        </ul>
-</div>     
+</div>      -->
+<!-- <div class="row" *ngFor="let product of this.viewDetail">
+       <div class="col-3 col-s-3">
+             <img [src]="product.mobileImage" class="thumbnail" >
+       </div>
+       <div class="col">
+              <ul>
+             <h2>{{product.selectProduct}}</h2>
+              <li>{{product.mobileStorage}}</li>
+              <li>{{product.mobilePrize}}</li>
+              <li><select name="quantity" id="" [(ngModel)]="quantity">
+               <option value="1">1</option>
+               <option value="2">2</option>
+               <option value="3">3</option>
+               <option value="4">4</option>
+               <option value="5">5</option>
+               <option value="6">6</option>
+              </select></li>
+              <button type="button" class="btn btn-primary">AddToCart</button>
+              <button type="button" class="btn btn-primary" (click)="buyNow(product.id)">Buy Now</button>
+       </ul>
+       </div> -->
+      
+
+              <div class="thumbnail row container-fluid" style="border:none; background:white;" *ngFor="let product of this.viewDetail" >
+
+              <div class="col-sm-6 col-md-6 col-xs-12 image-container">
+                <img [src]="product.mobileImage" style="height:500px; " />
+
+              </div>
+
+              <div class="col-sm-6 col-md-6 col-xs-12">  
+               
+                            <h2>{{product.selectProduct}} {{product.mobileModel}} ||{{product.mobileRam}}+{{product.mobileStorage}}|| {{product.processor}} <br>{{product.mobileBattery}} {{product.mobileColor}} simType {{product.sim}}</h2>
+                             <h2>₹{{product.mobilePrize}}</h2>
+
+              </div>
+              <div class="row">
+                     <div class="row">
+                            <div class="col-2"><button type="button">Add to cart</button></div>
+                            <div class="col-2"><button type="button">Buy Now</button></div>
+                     </div>
+                     <div class="col">
+                               <table class="table">
+                                   <thead>
+                                          <h1 class="text-center" >specifications</h1>
+                                   </thead>
+                                   <tbody>
+                                   <tr>
+                                         <td> <dt>ProductName </dt></td>
+                                          <td>{{product.selectProduct}}</td>
+                                   </tr>
+                                   <tr>
+                                         <td> <dt>Model </dt>
+ </td>                                         <td>{{product.mobileModel}}</td>
+                                   </tr>
+                                   <tr>
+                                         <td> <dt>Ram </dt>
+   </td>                                       <td>{{product.mobileRam}}</td>
+                                   </tr>
+                                   <tr>
+                                         <td> <dt>Storage </dt></td>
+                                          <td>{{product.mobileStorage}}</td>
+                                   </tr>
+                                   <tr>
+                                         <td> <dt>Processor </dt></td>
+                                          <td>{{product.processor}}</td>
+                                   </tr>
+                                   <tr>
+                                         <td> <dt>Colour </dt>
+</td>                                          <td>{{product.mobileColor}}</td>
+                                   </tr>
+                                   <tr>
+                                         <td> <dt>Battery </dt></td>
+                                          <td>{{product.mobileBattery}}</td>
+                                   </tr>
+                                   <tr>
+                                        <td><dt>Sim Type</dt></td>
+                                          <td>{{product.sim}}</td>
+                                   </tr>
+                                   <tr>
+                                          <td><dt>mobile Size</dt></td>
+                                            <td>{{product.mobileSize}}</td>
+                                     </tr>
+                                     <tr>
+                                          <td><dt>Country of Origin</dt></td>
+                                            <td>{{product.mobileOrigin}}</td>
+                                     </tr>
+                                     <tr>
+                                          <td><dt>mobile Weight</dt></td>
+                                            <td>{{product.mobileWeight}}</td>
+                                     </tr>
+                                     <tr>
+                                          <td><dt>Made Of</dt></td>
+                                            <td>{{product.quality}}</td>
+                                     </tr>
+                                </tbody>
+                               </table>
+                            </div>
+                     </div>
+                    
+                            
+              
+              </div>
+
+
+
+
+
 </body>
 </div>

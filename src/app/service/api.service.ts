@@ -14,12 +14,11 @@ export class ApiService {
   loginstatus:boolean=false
  
 
-  // private baseUrl= 'https://retoolapi.dev/YTLid1/imageApi';
+ private baseUrl= 'https://retoolapi.dev/YTLid1/imageApi';
    //private baseUrl= 'https://file.io';
-    private baseUrl ='https://api.escuelajs.co/api/v1/files/upload';
+//  private baseUrl ='https://api.escuelajs.co/api/v1/files/upload';
+    // public baseUrl ='https://api.restful-api.dev/objects';
 
-    
-  
   constructor(private httpclient:HttpClient) {}
  getApiData(url:string){
 return  this.httpclient.get(url)
@@ -45,7 +44,7 @@ return  this.httpclient.get(url)
  getImage(url:string):Observable<any>{
 return this.httpclient.get(url)
  }
-//  upload(file: File): Observable<HttpEvent<any>> {
+//  upload1(file: File): Observable<HttpEvent<any>> {
 //   const formData: FormData = new FormData();
 
 //   formData.append('file', file);
@@ -65,7 +64,7 @@ const headers=new HttpHeaders
 
   // Make http post request over api 
   // with formData as req 
-  return this.httpclient.post<any>(this.baseUrl,formData,{headers:headers}) 
+  return this.httpclient.post(this.baseUrl,formData , { headers: { 'Content-Type': 'multipart/form-data' }}) 
 } 
 
 
