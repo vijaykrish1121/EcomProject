@@ -1,16 +1,17 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
+<div id="body">
+<nav class="navbar fixed-top navbar-expand-lg navbar-light bg-light">
     <div class="container-fluid p-4">
-      <a class="navbar-brand" style="cursor: pointer;" (click)="onClickView('add')">Navbar</a>
+      <a class="navbar-brand" style="cursor: pointer;" (click)="onClickView('add')">EcomGrove</a>
       <button class="navbar-toggler" type="button" (click)="isCollapsed = !isCollapsed" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
     aria-controls="navbarSupportedContent" [attr.aria-expanded]="!isCollapsed" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
 </button>
 <div class="collapse navbar-collapse" id="navbarSupportedContent" [ngbCollapse]="isCollapsed" >
         <ul class="navbar-nav mx-auto">
-          <li class="nav-item px-5">
+          <li class="nav-item px-2">
             <a class="nav-link active" aria-current="page" routerLink="">Home</a>
           </li>
-          <li class="nav-item px-5">
+          <li class="nav-item px-3">
             <a class="nav-link" routerLink="/contactUs" >Contact-Us</a>
           </li>
           <li class="nav-item dropdown px-5" ngbDropdown>
@@ -23,7 +24,7 @@
               <li ngbDropdownItem><a class="dropdown-item" (click)="rejectedProduct($event)">Rejected Products</a></li>
             </ul>
           </li>
-          <li class="nav-item dropdown px-5" ngbDropdown>
+          <li class="nav-item dropdown px-3" ngbDropdown>
             <a class="nav-link dropdown-toggle"  id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false" ngbDropdownToggle>
               Sold Status
             </a>
@@ -32,7 +33,7 @@
               <li ngbDropdownItem> <a class="dropdown-item" (click)="soldProducts()">Sold Products</a></li>
             </ul>
           </li>
-          <li class="nav-item dropdown px-5" ngbDropdown>
+          <li class="nav-item dropdown px-3" ngbDropdown>
             <a class="nav-link dropdown-toggle"  id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false" ngbDropdownToggle>
               Account
             </a>
@@ -41,7 +42,7 @@
               <li ngbDropdownItem> <a class="dropdown-item" >Transcations</a></li>
             </ul>
           </li>
-          <li class="nav-item dropdown px-5" ngbDropdown>
+          <li class="nav-item dropdown px-3" ngbDropdown>
             <a class="nav-link dropdown-toggle"  id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false" ngbDropdownToggle>
               Profile
             </a>
@@ -62,40 +63,141 @@
     </div>
   </nav>
   <body class="container" *ngIf="body"> 
-    <div class=" rounded">
-  <ngb-carousel *ngIf="showCarousel" #carousel [interval]="5000" >
-      <ng-template ngbSlide>
-        <div style="height: 300px;" ><img src="./assets/images/slides/selling-online.jpg" alt="" class="" width="100%">
+    <main role="main">
+
+      <div id="myCarousel" class="carousel slide" data-ride="carousel">
+        <ol class="carousel-indicators">
+          <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+          <li data-target="#myCarousel" data-slide-to="1"></li>
+          <li data-target="#myCarousel" data-slide-to="2"></li>
+        </ol>
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <img class="first-slide" src="/assets/images/seller/carousel.jpeg" alt="First slide">
+            <div class="container">
+              <div class="carousel-caption text-left">
+                <!-- <h1>Example headline.</h1>
+                <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p> -->
+                <p><a class="btn btn-lg btn-primary" routerLink="/addProduct" role="button">Start Selling Now</a></p>
+              </div>
+            </div>
+          </div>
+          <div class="carousel-item">
+            <img class="second-slide" src="" alt="Second slide">
+            <div class="container">
+              <div class="carousel-caption">
+                <h1>Another example headline.</h1>
+                <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
+                <p><a class="btn btn-lg btn-primary" href="#" role="button">Learn more</a></p>
+              </div>
+            </div>
+          </div>
+          <div class="carousel-item">
+            <img class="third-slide" src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" alt="Third slide">
+            <div class="container">
+              <div class="carousel-caption text-right">
+                <h1>One more for good measure.</h1>
+                <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
+                <p><a class="btn btn-lg btn-primary" href="#" role="button">Browse gallery</a></p>
+              </div>
+            </div>
+          </div>
         </div>
-      </ng-template>
-      <ng-template ngbSlide>
-        <div   style="height: 300px;" ><img src="./assets/images/slides/HireSalesGraphic.jpg" alt="" class="" width="100%" >
-        </div>
-      </ng-template>
-    </ngb-carousel>
-  </div>
-  <div class="row"> 
-    <!-- <div class="col">
-    <div class="card  text-center-end text-white">
-      <img src="./assets/images/home/card-image.jpg" alt="" class="card-img"  > 
-      <div class="card-body card-img-overlay">
-        <h5 class="card-title">Special Selling Ecommerce</h5>
-        <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-        <a routerLink="/addProduct" class="btn btn-primary ">Start Now</a>
+        <a class="carousel-control-prev" href="#myCarousel" role="button" data-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="sr-only">Previous</span>
+        </a>
+        <a class="carousel-control-next" href="#myCarousel" role="button" data-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="sr-only">Next</span>
+        </a>
       </div>
-    </div>
-  </div> -->
-  <div class="card  text-center-end text-white" style="width: 30rem;">
-    <img src="./assets/images/home/card-image.jpg" class="card-img-top" alt="...">
-    <div class="card-body card-img-overlay">
-      <h5 class="card-title">Special Selling Ecommerce</h5>
-      <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-      <a routerLink="/addProduct" class="btn btn-primary ">Start Now</a>
-    </div>
-  </div>
-</div>
+
+
+      <!-- Marketing messaging and featurettes
+      ================================================== -->
+      <!-- Wrap the rest of the page in another container to center all the content. -->
+
+      <div class="container marketing">
+
+        <!-- Three columns of text below the carousel -->
+        <div class="row">
+          <div class="col-lg-4">
+            <img class="rounded-circle" src="/assets/images/seller/approved.jpg" alt="Generic placeholder image" width="140" height="140">
+            <h2>Approved Products</h2>
+            <p>Donec sed odio dui. Etiam porta sem malesuada magna mollis euismod. Nullam id dolor id nibh ultricies vehicula ut id elit. Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Praesent commodo cursus magna.</p>
+            <p><a class="btn btn-secondary" href="#" role="button">View details &raquo;</a></p>
+          </div><!-- /.col-lg-4 -->
+          <div class="col-lg-4">
+            <img class="rounded-circle" src="/assets/images/seller/rejected.jpg" alt="Generic placeholder image" width="140" height="140">
+            <h2>UnApproved Products</h2>
+            <p>Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Cras mattis consectetur purus sit amet fermentum. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh.</p>
+            <p><a class="btn btn-secondary" href="#" role="button">View details &raquo;</a></p>
+          </div><!-- /.col-lg-4 -->
+          <div class="col-lg-4">
+            <img class="rounded-circle" src="/assets/images/seller/sold.png" alt="Generic placeholder image" width="140" height="140">
+            <h2>Sold Products</h2>
+            <p>Donec sed odio dui. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Vestibulum id ligula porta felis euismod semper. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>
+            <p><a class="btn btn-secondary" href="#" role="button">View details &raquo;</a></p>
+          </div><!-- /.col-lg-4 -->
+        </div><!-- /.row -->
+
+
+        <!-- START THE FEATURETTES -->
+
+        <hr class="featurette-divider">
+
+        <div class="row featurette">
+          <div class="col-md-7">
+            <h2 class="featurette-heading">First featurette heading. <span class="text-muted">It'll blow your mind.</span></h2>
+            <p class="lead">Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.</p>
+          </div>
+          <div class="col-md-5">
+            <img class="featurette-image img-fluid mx-auto" src="/assets/images/seller/sell1.jpg" alt="Generic placeholder image">
+          </div>
+        </div>
+
+        <hr class="featurette-divider">
+
+        <div class="row featurette">
+          <div class="col-md-7 order-md-2">
+            <h2 class="featurette-heading">Oh yeah, it's that good. <span class="text-muted">See for yourself.</span></h2>
+            <p class="lead">Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.</p>
+          </div>
+          <div class="col-md-5 order-md-1">
+            <img class="featurette-image img-fluid mx-auto" src="/assets/images/seller/sale 1.jpg" alt="Generic placeholder image">
+          </div>
+        </div>
+
+        <hr class="featurette-divider">
+
+        <div class="row featurette">
+          <div class="col-md-7">
+            <h2 class="featurette-heading">And lastly, this one. <span class="text-muted">Checkmate.</span></h2>
+            <p class="lead">Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.</p>
+          </div>
+          <div class="col-md-5">
+            <img class="featurette-image img-fluid mx-auto" src="/assets/images/seller/sell 2.jpg" alt="Generic placeholder image">
+          </div>
+        </div>
+        <hr class="featurette-divider">
+
+        <!-- /END THE FEATURETTES -->
+
+      </div><!-- /.container -->
+
+
+      <!-- FOOTER -->
+        
+      <footer class="container ">
+        <p class="float-right"><a href="#">Back to top</a></p>
+        <p>&copy; 2017-2018 Company, Inc. &middot; <a href="#">Privacy</a> &middot; <a href="#">Terms</a></p>
+      </footer>
+    </main>
  </body>
-  <div class="container"  *ngIf="productList">
+   
+</div>
+  <div class="container mt-5"  *ngIf="productList">
     <table class="table table-striped table-bordered">
         <thead> <h2>Mobile</h2>
       <tr class="table-warning h6">
@@ -110,6 +212,7 @@
        <th>mobilePrize</th>
        <th>mobileColor</th>
        <th>mobileId</th>
+       <th>MobileImage</th>
       </tr>
     </thead>
     <tbody>
@@ -125,6 +228,7 @@
             <td>{{appravol.mobilePrize}}</td>
             <td>{{appravol.mobileColor}}</td>
             <td>{{appravol.mobileId}}</td>
+            <td><img [src]="appravol.mobileImage" alt="image" class="w-50"></td>
         </tr>
     </tbody>  
     </table>
@@ -140,7 +244,7 @@
       <th>productColour</th>
      <th> productQuantity</th>
      <th>productPrize</th>
-     
+      <th>Dress Image</th>
     </tr>
   </thead>
   <tbody>
@@ -154,6 +258,7 @@
           <td>{{appravol.dressColour}}</td>   
           <td>{{appravol.quantity}}</td>  
           <td>{{appravol.productPrize}}</td>  
+          <td><img [src]="appravol.mobileImage" alt="image" class="w-25"></td>
       </tr>
   </tbody>
     </table>
@@ -194,7 +299,7 @@
         </div>
         </div>
       </ng-template>
-        <div *ngIf="unSoldView">
+        <div *ngIf="unSoldView" class="bodyUnSold">
           <table class="table table-striped table-bordered">
             <thead>
               <tr>
@@ -214,7 +319,7 @@
             </tbody>
           </table>
       </div>
-      <div *ngIf="soldView">
+      <div *ngIf="soldView" class="bodySold">
         <h3>mobile</h3>
         <table class="table table-striped table-bordered">
           <thead>
@@ -274,3 +379,4 @@
           </tbody>
         </table>
     </div>
+  

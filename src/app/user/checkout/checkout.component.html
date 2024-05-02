@@ -1,64 +1,65 @@
-
+<body>
+     <div id="heading">
+     <h1 class="m-5 text-center">CHECKOUT</h1>
+    </div>
+   
    <mat-stepper   orientation="vertical" [linear]="!isLinear" #stepper class="container mt-5">
     <mat-step >
         <ng-template matStepLabel>Delivery Address</ng-template>
         <div class="row"> 
-          <div class="m-5 col">{{addresss}}</div>  
-          <div class="col"><a class="text-primary" (click)="openAddress(content)">Choose saved addresss</a></div>
-        </div>
-        <ng-template #content let-modal>
-          <div class="modal-header">
-            <h4 class="modal-title">Modal title</h4>
-            <button type="button" class="btn-close" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
-          </div>
-          <div class="modal-body">
+          <div class="m-5 col">
             <div *ngFor="let address of this.savedAddress" class="row g-2">
-            <div class="col-1"><input type="radio" value="{{address.fullName}},{{address.phoneNumber}},{{address.address}},{{address.pinCode}},{{address.detail1}},{{address.landMark}}" name="address" [(ngModel)]="addresss" class="m-3"> </div> <div class="col"><div class="font-weight-bold h5">{{address.fullName}}</div><div>{{address.fullName}},{{address.phoneNumber}},{{address.address}} <br>
-              {{address.pinCode}},{{address.detail1}},{{address.landMark}} </div></div>
-             </div>
-          </div>
-          <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" (click)="modal.close('Close click')">Close</button>
-          </div>
-        </ng-template>
-         <a class="m-3" (click)="addNewAddress(address)">Add New Address</a>
-
+              <div class="col-1"><input type="radio"  value="{{address.fullName}},{{address.phoneNumber}},{{address.address}},{{address.pinCode}},{{address.detail1}},{{address.landMark}}" name="address" [(ngModel)]="isChecked" class="m-3 form-check-input"> </div> <div class="col"><div class="font-weight-bold h5">{{address.fullName}}</div><div>{{address.fullName}},{{address.phoneNumber}},{{address.address}} <br>
+                {{address.pinCode}},{{address.detail1}},{{address.landMark}} </div></div>
+               </div>
+          </div>  
+          <div class="col"> <a class="m-3" (click)="addNewAddress(address)">Add New Address</a></div>
+        </div>
         <div>
-          <button mat-button matStepperNext [disabled]="!checkfield" >Next</button>
+          <button mat-button matStepperNext [disabled]="!isChecked" class="btn btn-primary" >Next</button>
         </div>
     </mat-step>
     <mat-step  label="Fill out your address">
         <ng-template matStepLabel>Choose Payment Type</ng-template>
         <div>
          <div class="p-3">
-        <input type="radio" name="paymentType" id="" value="creditCard">CreditCard
+        <input type="radio" name="paymentType" id="" value="creditCard" class="form-check-input">CreditCard
          </div>
          <div class="p-3">
-        <input type="radio" name="paymentType" id="" value="depitCard">depitCard
+        <input type="radio" name="paymentType" id="" value="depitCard" class="form-check-input">depitCard
       </div>
       <div class="p-3">
-        <input type="radio" name="paymentType" id="" value="upi">UPi
+        <input type="radio" name="paymentType" id="" value="upi" class="form-check-input">UPi
       </div>
     <div class="p-3">
-        <input type="radio" name="paymentType" id="" value="cashOnDelivery">CashOnDelivery
+        <input type="radio" name="paymentType" id="" value="cashOnDelivery" class="form-check-input">CashOnDelivery
          </div>
         <div class="p-3">
-            <button mat-button matStepperNext (click)="reviewOrder()" >choose this payment Type</button>
+            <button mat-button matStepperNext (click)="reviewOrder()" class="btn btn-primary" >choose this payment Type</button>
           </div>
         </div>
     </mat-step>
     <mat-step>
       <ng-template matStepLabel>review Item and delivery</ng-template>
-      <ul *ngFor="let product of this.viewDetail">
-        <li>mobile Name:{{product.selectProduct}}</li>
+      <div class="row" *ngFor="let product of this.viewDetail" >
+        <div class="col">
+          <img src={{product.mobileImage}}  width="50%">
+        </div>
+     <div class="col">
+      <ul >
+        <!-- <li >mobile Name:{{product.selectProduct}}</li>
         <li>Quantity:{{this.quantity}}</li>
         <li>Mobile Storage:{{product.mobileStorage}}</li>
         <li>mobile Prize :{{product.mobilePrize}}</li>
-        <li>total Amount :{{this.quantity*product.mobilePrize}}</li>
+        <li>total Amount :{{this.quantity*product.mobilePrize}}</li> -->
+        <h2>{{product.selectProduct}} {{product.mobileModel}} ||{{product.mobileRam}}+{{product.mobileStorage}}|| {{product.processor}} <br>{{product.mobileBattery}} {{product.mobileColor}} simType {{product.sim}}</h2>
+        <h2>₹{{product.mobilePrize}}</h2>
         </ul>
-      <div>
-        <button mat-button matStepperPrevious>Back</button>
-        <button mat-button (click)="finalPayment()">place order</button>
+      </div>
+      </div>
+      <div class="d-flex justify-content-evenly mt-3">
+       <button mat-button matStepperPrevious class="btn btn-primary mr-1">Back</button>
+        <button mat-button (click)="finalPayment()" class="btn btn-primary">place order</button>
       </div>
     </mat-step>
   </mat-stepper>
@@ -137,4 +138,5 @@
       <button type="button" class="btn btn-secondary" (click)="modal.close('Close click')">Close</button>
     </div>
   </ng-template>
+</body>
      

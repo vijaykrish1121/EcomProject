@@ -1,17 +1,113 @@
-<div *ngIf="viewPage">
-    <ul *ngFor="let product of this.viewDetail">
-    <li>{{product.selectProduct}}</li>
-    <li>{{product.dressSize}}</li>
-    <li>{{product.productPrize}}</li>
-    <li><select name="quantity" id="" [(ngModel)]="quantity">
-     <option value="1">1</option>
-     <option value="2">2</option>
-     <option value="3">3</option>
-     <option value="4">4</option>
-     <option value="5">5</option>
-     <option value="6">6</option>
-    </select></li>
-    <button type="button" class="btn btn-primary">AddToCart</button>
-    <button type="button" class="btn btn-primary" (click)="buyNow(product.id)">Buy Now</button>
-    </ul>
-</div>
+<div class="d-grid">
+    <header id="header">
+           <app-nav-bar></app-nav-bar>
+       </header>
+       <body id="content">
+                  <div class="thumbnail row container-fluid" style="border:none; background:white;" *ngFor="let product of this.viewDetail" >
+    
+                  <div class="col-sm-6 col-md-6 col-xs-12 image-container">
+                    <img [src]="product.mobileImage" style="height:500px; " />
+    
+                  </div>
+    
+                  <div class="col-sm-6 col-md-6 col-xs-12">  
+                   
+                                <h2>{{product.selectProduct}} {{product.dwsd}} ||{{product.mobileRam}}+{{product.mobileStorage}}|| {{product.processor}} <br>{{product.mobileBattery}} {{product.mobileColor}} simType {{product.sim}}</h2>
+                                 <h2>₹{{product.mobilePrize}}</h2>
+                                 <br><br><br><br><br>
+                                 <label for="">chooose Quantity</label>
+                                 <input type="number" class="form-control"  [(ngModel)]="quantity">
+                                 <div class="row">
+                                       <div class="col">
+                                           <h3>Offers</h3>
+                                 <ul>
+                                       <li>Free and Fast delivery</li>
+                                       <li>Discount on products</li>
+                                 </ul>
+                                </div>
+                                <div class="col">
+                                       <h3>CashBack</h3>
+                                       <li>Get Cashback on every product you buy</li>
+                                </div>
+                         </div>
+                         <div class="row"> 
+                                <div class="col">Return Policy</div>
+                                <div class="col">Easy refund</div>
+                                <div class="col">Easy Exchange</div>
+                             </div>
+    
+                  </div>
+                  <div class="row">
+                         <div class="col">
+                                <div class="row m-5">
+                                <div class="col"><button type="button" class="btn btn-primary btn-lg">Add to cart</button></div>
+                                <div class="col"><button type="button" class="btn btn-primary btn-lg" (click)="buyNow(product.id)">Buy Now</button></div>
+                         </div>
+    
+                         </div>
+                           
+                         <div class="col">
+                                   <table class="table">
+                                       <thead>
+                                              <h1 class="text-center" >specifications</h1>
+                                       </thead>
+                                       <tbody>
+                                       <tr>
+                                             <td> <dt>ProductName </dt></td>
+                                              <td>{{product.selectProduct}}</td>
+                                       </tr>
+                                       <tr>
+                                             <td> <dt>Model </dt>
+     </td>                                         <td>{{product.mobileModel}}</td>
+                                       </tr>
+                                       <tr>
+                                             <td> <dt>Ram </dt>
+       </td>                                       <td>{{product.mobileRam}}</td>
+                                       </tr>
+                                       <tr>
+                                             <td> <dt>Storage </dt></td>
+                                              <td>{{product.mobileStorage}}</td>
+                                       </tr>
+                                       <tr>
+                                             <td> <dt>Processor </dt></td>
+                                              <td>{{product.processor}}</td>
+                                       </tr>
+                                       <tr>
+                                             <td> <dt>Colour </dt>
+    </td>                                          <td>{{product.mobileColor}}</td>
+                                       </tr>
+                                       <tr>
+                                             <td> <dt>Battery </dt></td>
+                                              <td>{{product.mobileBattery}}</td>
+                                       </tr>
+                                       <tr>
+                                            <td><dt>Sim Type</dt></td>
+                                              <td>{{product.sim}}</td>
+                                       </tr>
+                                       <tr>
+                                              <td><dt>mobile Size</dt></td>
+                                                <td>{{product.mobileSize}}</td>
+                                         </tr>
+                                         <tr>
+                                              <td><dt>Country of Origin</dt></td>
+                                                <td>{{product.mobileOrigin}}</td>
+                                         </tr>
+                                         <tr>
+                                              <td><dt>mobile Weight</dt></td>
+                                                <td>{{product.mobileWeight}}</td>
+                                         </tr>
+                                         <tr>
+                                              <td><dt>Made Of</dt></td>
+                                                <td>{{product.quality}}</td>
+                                         </tr>
+                                    </tbody>
+                                   </table>
+                                </div>
+                         </div>   
+                  </div>
+    </body>
+    <footer>
+           <app-footer></app-footer>
+    </footer>
+    </div>
+    

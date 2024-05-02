@@ -37,6 +37,7 @@ import { TranscationComponent } from './Admin/transcation/transcation.component'
 import { ViewDressproductComponent } from './user/view-dressproduct/view-dressproduct.component';
 import { RejectedProductsComponent } from './Admin/rejected-products/rejected-products.component';
 import { AddCartComponent } from './user/add-cart/add-cart.component';
+import { SellerNavbarComponent } from './Seller/seller-navbar/seller-navbar.component';
 
 
 
@@ -70,7 +71,7 @@ import { AddCartComponent } from './user/add-cart/add-cart.component';
      ViewDressproductComponent,
      RejectedProductsComponent,
      AddCartComponent,
-    
+     SellerNavbarComponent,
   ],
   imports: [
     BrowserModule,

@@ -19,7 +19,7 @@ export class ViewProductComponent implements OnInit {
  isLinear=false
  paymentSteps=false
  viewPage=true
- quantity:number=0
+ quantity:number=1
   constructor( private apiService:ApiService,private router:Router,private routes:ActivatedRoute,private _formBuilder: FormBuilder){}
   ngOnInit(): void {
   this.viewProduct()

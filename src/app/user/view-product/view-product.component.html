@@ -3,48 +3,6 @@
        <app-nav-bar></app-nav-bar>
    </header>
    <body id="content">
- 
-<!-- <div *ngIf="viewPage">
-       <ul *ngFor="let product of this.viewDetail">
-
-       <li>{{product.selectProduct}}</li>
-       <li>{{product.mobileStorage}}</li>
-       <li>{{product.mobilePrize}}</li>
-       <li><select name="quantity" id="" [(ngModel)]="quantity">
-        <option value="1">1</option>
-        <option value="2">2</option>
-        <option value="3">3</option>
-        <option value="4">4</option>
-        <option value="5">5</option>
-        <option value="6">6</option>
-       </select></li>
-       <button type="button" class="btn btn-primary">AddToCart</button>
-       <button type="button" class="btn btn-primary" (click)="buyNow(product.id)">Buy Now</button>
-       </ul>
-</div>      -->
-<!-- <div class="row" *ngFor="let product of this.viewDetail">
-       <div class="col-3 col-s-3">
-             <img [src]="product.mobileImage" class="thumbnail" >
-       </div>
-       <div class="col">
-              <ul>
-             <h2>{{product.selectProduct}}</h2>
-              <li>{{product.mobileStorage}}</li>
-              <li>{{product.mobilePrize}}</li>
-              <li><select name="quantity" id="" [(ngModel)]="quantity">
-               <option value="1">1</option>
-               <option value="2">2</option>
-               <option value="3">3</option>
-               <option value="4">4</option>
-               <option value="5">5</option>
-               <option value="6">6</option>
-              </select></li>
-              <button type="button" class="btn btn-primary">AddToCart</button>
-              <button type="button" class="btn btn-primary" (click)="buyNow(product.id)">Buy Now</button>
-       </ul>
-       </div> -->
-      
-
               <div class="thumbnail row container-fluid" style="border:none; background:white;" *ngFor="let product of this.viewDetail" >
 
               <div class="col-sm-6 col-md-6 col-xs-12 image-container">
@@ -56,13 +14,38 @@
                
                             <h2>{{product.selectProduct}} {{product.mobileModel}} ||{{product.mobileRam}}+{{product.mobileStorage}}|| {{product.processor}} <br>{{product.mobileBattery}} {{product.mobileColor}} simType {{product.sim}}</h2>
                              <h2>₹{{product.mobilePrize}}</h2>
+                             <br><br><br><br><br>
+                             <label for="">chooose Quantity</label>
+                             <input type="number" class="form-control"  [(ngModel)]="quantity">
+                             <div class="row">
+                                   <div class="col">
+                                       <h3>Offers</h3>
+                             <ul>
+                                   <li>Free and Fast delivery</li>
+                                   <li>Discount on products</li>
+                             </ul>
+                            </div>
+                            <div class="col">
+                                   <h3>CashBack</h3>
+                                   <li>Get Cashback on every product you buy</li>
+                            </div>
+                     </div>
+                     <div class="row"> 
+                            <div class="col">Return Policy</div>
+                            <div class="col">Easy refund</div>
+                            <div class="col">Easy Exchange</div>
+                         </div>
 
               </div>
               <div class="row">
-                     <div class="row">
-                            <div class="col-2"><button type="button">Add to cart</button></div>
-                            <div class="col-2"><button type="button">Buy Now</button></div>
+                     <div class="col">
+                            <div class="row m-5">
+                            <div class="col"><button type="button" class="btn btn-primary btn-lg">Add to cart</button></div>
+                            <div class="col"><button type="button" class="btn btn-primary btn-lg" (click)="buyNow(product.id)">Buy Now</button></div>
                      </div>
+
+                     </div>
+                       
                      <div class="col">
                                <table class="table">
                                    <thead>
@@ -120,15 +103,10 @@
                                 </tbody>
                                </table>
                             </div>
-                     </div>
-                    
-                            
-              
+                     </div>   
               </div>
-
-
-
-
-
 </body>
+<footer>
+       <app-footer></app-footer>
+</footer>
 </div>

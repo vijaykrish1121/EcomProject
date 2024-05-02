@@ -15,13 +15,14 @@ import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 })
 export class CheckoutComponent implements OnInit {
   private modalService = inject(NgbModal);
+// checked: boolean=true
   constructor( private apiService:ApiService,private router:Router,private routes:ActivatedRoute,private _formBuilder: FormBuilder){}
  isLinear=false
  user:any
  savedAddress:any=[]
  addresss:any
  deliverAddress:any=[]
- checkfield:boolean=false
+ isChecked:boolean=false
 value:any
 viewDetail:any=[]
 quantity:number=0
@@ -40,16 +41,17 @@ adminAcc:any=[]
    openAddress(content: TemplateRef<any>){
 		this.modalService.open(content, { centered: true });
     this.getAddress();
-    if(this.addresss==''){
-      this.checkfield=false
-     }
-     else
-     this.checkfield=true
+    // if(this.checkfield=false){
+        
+    //  }
+    //  else
+    //  this.checkfield=false
    }
    addNewAddress(content: TemplateRef<any>){
 		this.modalService.open(content, { scrollable:true, centered: true });
-
+ 
    }
+  
 
    getAddressDetail(){
     return new FormGroup({
@@ -82,6 +84,7 @@ adminAcc:any=[]
      {
       console.log(response);
        alert('address saved')
+       this.ngOnInit()
      }
      )
     }
