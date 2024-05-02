@@ -27,7 +27,7 @@
             "inlineStyleLanguage": "scss",
             "assets": [
               "src/favicon.ico",
-              "src/assets"
+              "src"./ass"
             ],
             "styles": [
               "@angular/material/prebuilt-themes/indigo-pink.css",
@@ -93,8 +93,8 @@
             "inlineStyleLanguage": "scss",
             "assets": [
               "src/favicon.ico",
-              "src/assets",
-              {"glob": "**/*","input": "src/assets","output": "./assets"}
+              "src"./ass",
+              {"glob": "**/*","input": "src"./ass","output": "."./ass"}
             ],
             "styles": [
               "@angular/material/prebuilt-themes/indigo-pink.css",
