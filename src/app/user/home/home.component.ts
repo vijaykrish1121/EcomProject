@@ -17,6 +17,7 @@ export class HomeComponent  implements OnInit {
  approvedProductDressLists:any=[]
  viewDetail:any=[]
  user:any
+ quantity:number=1;
   ngOnInit(): void {
     this.approvedProductMobile()
     this.approvedProductDress()
@@ -53,6 +54,7 @@ addCart(products:any){
      let detail={
        user:this.user,
        productId:products.id,
+       quantity:this.quantity
      }
      this.apiService.postAPiData(ApiUrls.addCartApi,detail).subscribe((response)=>{
       console.log(response);

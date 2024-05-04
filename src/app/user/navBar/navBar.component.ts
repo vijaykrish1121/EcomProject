@@ -3,6 +3,8 @@ import { Router } from '@angular/router';
 import { ApiService } from 'src/app/service/api.service';
 import { OnInit } from '@angular/core';
 import { ApiUrls } from 'src/app/common/apiUrls';
+
+
 @Component({
   selector: 'app-nav-bar',
   templateUrl: './navBar.component.html',

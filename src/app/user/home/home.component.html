@@ -29,6 +29,8 @@
                   <p class="card-text fw-bold">₹{{approved.mobilePrize}}</p>
             </div>
           </a>
+          <p>choose Quantity  <input type="number" class="form-control"  [(ngModel)]="quantity"></p>
+          <h3><button (click)="addCart(approved)">Add to Cart</button></h3>
         </div>
       
     </div>
@@ -46,7 +48,7 @@
         </div>
       </a>
     </div>
-  
+    
 </div>
 </div>
 </div>

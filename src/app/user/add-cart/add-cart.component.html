@@ -1,6 +1,15 @@
 
 <div>
-    <ul *ngFor="let list of this.listProduct">
-       <li>{{list.selectProduct}}</li>
-    </ul>
+    <div class="row">
+         <div class="col">Product</div>
+         <div class="col">Quantity</div>
+         <div class="col">Price</div>
+    </div>
+    <div class="row"  *ngFor="let list of this.listProduct">
+        <div class="col">
+       {{list.selectProduct}} </div>
+     <div class="col"><h3>{{quantity}}</h3></div>  
+      <div class="col"><h3>{{list.mobilePrize}}</h3></div> 
+    <div class="col"><button class="btn btn-primary" (click)="buyNow(list.id)">Proceed to Buy</button></div>
+</div>
 </div>
