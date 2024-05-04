@@ -40,8 +40,6 @@ import { AddCartComponent } from './user/add-cart/add-cart.component';
 import { SellerNavbarComponent } from './Seller/seller-navbar/seller-navbar.component';
 
 
-
-
 @NgModule({
   declarations: [
     AppComponent,
@@ -72,6 +70,7 @@ import { SellerNavbarComponent } from './Seller/seller-navbar/seller-navbar.comp
      RejectedProductsComponent,
      AddCartComponent,
      SellerNavbarComponent,
+    
   ],
   imports: [
     BrowserModule,
@@ -84,9 +83,8 @@ import { SellerNavbarComponent } from './Seller/seller-navbar/seller-navbar.comp
     MatInputModule,
     MatFormFieldModule,
     ReactiveFormsModule,
-    MatSelectModule
-   
-    
+    MatSelectModule,
+
     
   ],
   providers: [],
