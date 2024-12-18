@@ -4,6 +4,7 @@ import { ApiUrls } from 'src/app/common/apiUrls';
 import { ApiService } from 'src/app/service/api.service';
 import { OnInit } from '@angular/core';
 import { query } from '@angular/animations';
+import { NgModel } from '@angular/forms';
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
@@ -13,37 +14,27 @@ export class HomeComponent  implements OnInit {
   constructor( private apiService:ApiService,private router:Router){}
   showCarousel=true;
 
- approvedProductMobileLists:any=[]
+
  approvedProductDressLists:any=[]
  viewDetail:any=[]
  user:any
  quantity:number=1;
   ngOnInit(): void {
-    this.approvedProductMobile()
     this.approvedProductDress()
     this.user=sessionStorage.getItem('user')||''
   }
 
-  approvedProductMobile(){
-    this.apiService.filterApi(ApiUrls.mobileApi,'status=approved').subscribe((response:any)=>
-    {
-      this.approvedProductMobileLists=response
-      console.log(this.approvedProductMobileLists)
-    }
-    )
-  }
+ 
   approvedProductDress(){
     this.apiService.filterApi(ApiUrls.dressApi,'status=approved').subscribe((response:any)=>
     {
       this.approvedProductDressLists=response
-      console.log(this.approvedProductMobileLists)
+   
     }
     )
   }
 
- viewMobileProduct(id:number){
-  this.router.navigate(['viewProduct'],{queryParams:{id:id}})
- }
+ 
 
  viewDressProduct(id:number){
   this.router.navigate(['/viewDressProduct'],{queryParams:{id:id}})

@@ -1,0 +1,34 @@
+<div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 g-4 mt-3">
+    <div 
+      class="col" 
+      *ngFor="let approved of this.approvedProductDressLists"
+    >
+      <div class="card h-100">
+        <a 
+          (click)="viewDressProduct(approved.id)" 
+          style="text-decoration: none; color: inherit;"
+        >
+          <img 
+            [src]="approved.dressImage" 
+            class="card-img-top" 
+            alt="{{approved.productName}}" 
+            style="object-fit: cover; height: 200px;"
+          >
+          <div class="card-body text-center">
+            <h5 class="card-title fw-bold">
+              {{approved.productName}}
+            </h5>
+            <h6 class="fw-bolder">
+              Size: {{approved.dressSize}}
+            </h6>
+            <p class="card-text">
+              Color: {{approved.dressColor}}
+            </p>
+            <h5 class="fw-bolder text-success">
+              ₹{{approved.productPrize}}
+            </h5>
+          </div>
+        </a>
+      </div>
+    </div>
+  </div>

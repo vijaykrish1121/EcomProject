@@ -1,45 +1,129 @@
-<body>
-<nav class="navbar fixed-top navbar-expand-lg">
-  <div class="container-fluid">
-    <a class="navbar-brand" href="#">EcomGrove</a>
-    <button class="navbar-toggler" type="button" (click)="isCollapsed = !isCollapsed" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
-    aria-controls="navbarSupportedContent" [attr.aria-expanded]="!isCollapsed" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-</button>
-<div class="collapse navbar-collapse" id="navbarSupportedContent" [ngbCollapse]="isCollapsed">
-      <ul class="navbar-nav mx-auto mb-lg-0">
-        <li class="nav-item px-2">
-          <a class="nav-link" id="home" aria-current="page" routerLink="">Home</a>
-        </li>
-        <li class="nav-item px-5">
-          <a class="nav-link" routerLink="" (click)="checkSession()">Link</a>
-        </li>
-        <li class="nav-item dropdown px-5" ngbDropdown>
-          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false" ngbDropdownToggle>
-            Dropdown
+  <nav class="navbar navbar-expand-lg  fixed-top">
+    <div class="container-fluid">
+      <!-- Brand Logo -->
+      <a class="navbar-brand" routerLink="/">EcomGrove</a>
+
+      <!-- Toggler for small screens -->
+      <a class="mb-2 mb-sm-0 me-sm-3 text-decoration-none d-block d-lg-none" routerLink="/addCart">
+        <i class="fa-solid fa-cart-shopping"></i> Cart
+      </a>
+      <button
+        class="navbar-toggler"
+        type="button"
+        (click)="isCollapsed = !isCollapsed"
+        [attr.aria-expanded]="!isCollapsed"
+        aria-label="Toggle navigation"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <!-- Collapsible Navbar Content -->
+      <div
+        class="collapse navbar-collapse"
+        id="navbarSupportedContent"
+        [ngbCollapse]="isCollapsed"
+      >
+        <!-- Center-aligned Navigation Links -->
+        <ul class="navbar-nav mx-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a
+              class="nav-link"
+              routerLink="/"
+             
+              aria-current="page"
+              >Home</a
+            >
+          </li>
+          <li class="nav-item">
+            <a
+              class="nav-link"
+              routerLink="/link"
+              routerLinkActive="active"
+              (click)="checkSession()"
+              >Link</a
+            >
+          </li>
+          <li class="nav-item dropdown" ngbDropdown>
+            <a
+              class="nav-link dropdown-toggle"
+              ngbDropdownToggle
+              role="button"
+              aria-expanded="false"
+              >Dropdown</a
+            >
+            <ul class="dropdown-menu" ngbDropdownMenu>
+              <li><a class="dropdown-item" href="#">Action</a></li>
+              <li><a class="dropdown-item" href="#">Another action</a></li>
+              <li><hr class="dropdown-divider" /></li>
+              <li><a class="dropdown-item" href="#">Something else here</a></li>
+            </ul>
+          </li>
+          <li class="nav-item">
+            <a
+              class="nav-link"
+              routerLink="/contactUs"
+              routerLinkActive="active"
+              >Support</a
+            >
+          </li>
+        </ul>
+
+        <!-- Search Bar (Desktop Only) -->
+        <form
+          class="d-none d-lg-flex align-items-center mx-lg-3"
+        >
+          <input
+            class="form-control me-2"
+            type="search"
+            placeholder="Search"
+            aria-label="Search"
+            name="searchQuery"
+          />
+          <button class="btn btn-outline-primary" type="submit">Search</button>
+        </form>
+
+        <!-- Cart and Authentication -->
+        <div class="d-flex  align-items-center justify-content-between">
+          <!-- Cart -->
+          <a class="mb-2 mb-sm-0 me-sm-3 text-decoration-none d-none d-lg-flex" routerLink="/addCart">
+            <i class="fa-solid fa-cart-shopping"></i> Cart
           </a>
-          <ul class="dropdown-menu" ngbDropdownMenu>
-            <li ngbDropdownItem><a class="dropdown-item" href="#">Action</a></li>
-            <li ngbDropdownItem><a class="dropdown-item" href="#">Another action</a></li>
-            <li ngbDropdownItem><hr class="dropdown-divider"></li>
-            <li ngbDropdownItem><a class="dropdown-item" href="#">Something else here</a></li>
-          </ul>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" routerLink="/contactUs">Support</a>
-        </li>
-      </ul>
-      <form class="d-flex mx-auto" role="search">
-        <input class="form-control me-1" type="search" placeholder="Search" aria-label="Search">
-        <button class="btn btn-outline-primary" type="submit">Search</button>
-      </form>
-      <div><a routerLink="/addCart"><i class="fa-solid fa-cart-shopping"></i> cart</a></div>
-      <div class="d-flex p-3">
-        <button class="btn btn-outline-success me-2" type="button"   *ngIf="!loginStatus" (click)="login()">Login</button>
-        <button class="btn btn-outline-success" type="button" *ngIf="loginStatus" (click)="logout()">Logout</button>
+
+          <!-- Login/Logout -->
+          <div>
+            <button
+              class="btn btn-primary me-2"
+              type="button"
+              *ngIf="!loginStatus"
+              (click)="login()"
+            >
+              Login
+            </button>
+            <button
+              class="btn btn-outline-danger"
+              type="button"
+              *ngIf="loginStatus"
+              (click)="logout()"
+            >
+              Logout
+            </button>
+          </div>
+        </div>
       </div>
     </div>
-  </div>
-</nav>
+  </nav>
 
-</body>
+  <!-- Search Bar (Mobile Only) -->
+  
+  <div class="d-block d-lg-none  p-3 mt-5" id="srchbox">
+    <form class="d-flex">
+      <input
+        class="form-control me-2"
+        type="search"
+        placeholder="Search"
+        aria-label="Search"
+        name="searchQueryMobile"
+      />
+      <button class="btn btn-primary" type="submit">Search</button>
+    </form>
+  </div>

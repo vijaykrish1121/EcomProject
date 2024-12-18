@@ -1,54 +1,80 @@
-
-body {
-  padding-top: 6rem;
-  margin: 0;
-  
-  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-  background-color: #DDD;
-}
- 
-  .navbar {
-    border-bottom: 1px solid #BBBBBB;
-    background-color:#fef9f8;
-  }
   .nav-link {
-    font-weight: bold;
+    color: black;
     font-size: 14px;
-    // text-transform: uppercase;
+    font-family: 'Georgia', serif;
+    text-shadow: 2px 2px 5px gray;
     text-decoration: none;
-    color: #031D44;
     padding: 20px 0px;
     margin: 0px 20px;
     display: inline-block;
     position: relative;
-    opacity: 0.75;
+   
   }
-  .nav-link:hover {
-    opacity: 1;
+  nav{
+    background-color: #0dcaf0;
   }
-  
-  .nav-link::before {
-    transition: 300ms;
-    height: 5px;
-    content: "";
-    position: absolute;
-    background-color: #031D44;
+  a{
+    color: black;
   }
-  .nav-link::before {
-    height: 0%;
-    width: 100%;
-    bottom: 0px;
+  #srchbox{
+    background-color: #0dcaf0;
   }
-  
-  .nav-link:hover::before {
-    height: 5px;
-  }  
- .dropdown-item:hover{
-  text-decoration: none;
-  color: #031D44;
-  font-weight: bold;
-    font-size: 14px;
-  
- }
+  /* Navbar Brand Hover Effect */
+  .navbar-brand:hover {
+    color: whitesmoke; /* Change to your desired color */
+    text-decoration: underline;
+    transition: color 0.3s ease, text-decoration 0.3s ease;
+  }
 
+  /* Nav Links Hover Effect */
+  .nav-link:hover {
+    color: white; /* Change to a darker shade for hover */
+    text-decoration: underline;
+    transition: color 0.3s ease, text-decoration 0.3s ease;
+  }
+
+  /* Dropdown Items Hover Effect */
+  .dropdown-item:hover {
+    background-color: #f8f9fa; /* Light gray background */
+    color: #007bff; /* Change text color */
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+
+  /* Button Hover Effects */
+  .btn:hover {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Add shadow effect */
+    transition: box-shadow 0.3s ease;
+  }
+
+  .btn-outline-primary:hover {
+    background-color: #007bff; /* Fill with primary color */
+    color: white; /* Change text color */
+  }
+
+  .btn-outline-success:hover {
+    background-color: #28a745; /* Fill with success color */
+    color: white;
+  }
+
+  .btn-outline-danger:hover {
+    background-color: #dc3545; /* Fill with danger color */
+    color: white;
+  }
+
+  /* Cart Icon Hover Effect */
+  .fa-cart-shopping:hover {
+    color: #007bff; /* Change icon color */
+    transform: scale(1.1); /* Slightly enlarge icon */
+    transition: color 0.3s ease, transform 0.3s ease;
+  }
+  @media  (min-width: 601px) and (max-width: 1024px) {
+    .nav-link {
+     font-size: 16px;
+    }
+  }
+  @media  (min-width: 1025px) {
+    .nav-link {
+     font-size: 18px;
+    }
+  }
 

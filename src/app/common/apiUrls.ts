@@ -13,10 +13,3 @@ export const ApiUrls : any={
     imageApi:'https://retoolapi.dev/YTLid1/imageApi',
     addCartApi:'https://retoolapi.dev/lvVeoa/cartApi'
 }
-// https://retoolapi.dev/TPzpPy/addProduct
-// https://retoolapi.dev/x8WFDb/registerApi
-// https://retoolapi.dev/2cQ22b/sellerDetailApi
-// https://retoolapi.dev/iCE7zJ/mobileApi
-// https://retoolapi.dev/ihPrG0/dressApi
-// https://retoolapi.dev/VjQAte/saleHistoryApi
-// https://retoolapi.dev/WPRYDN/paymentHistoryApi

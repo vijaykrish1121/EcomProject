@@ -10,6 +10,7 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { formatDate } from '@angular/common';
 import { HttpEventType, HttpResponse } from '@angular/common/http';
 import { DomSanitizer } from '@angular/platform-browser';
+import { CloudinaryService } from 'src/app/service/cloudinary.service';
 
 @Component({
   selector: 'app-addproduct',
@@ -18,7 +19,7 @@ import { DomSanitizer } from '@angular/platform-browser';
 })
 
 export class AddproductComponent implements OnInit {
-  selectedFiles?: FileList;
+  selectedFiles?: File;
   currentFile?: File;
   progress = 0;
   message = '';
@@ -26,6 +27,7 @@ export class AddproductComponent implements OnInit {
 
   imageInfos?: Observable<any>;
   responseImgUrl : any;
+  
 
 
   ngOnInit(): void {
@@ -39,7 +41,7 @@ export class AddproductComponent implements OnInit {
     this.mobileDetails=this.getmobileDetails()
     this.dressDetail=this.getDressDetails()
   }
- constructor(private apiService:ApiService,private routes:Router,private sanitizer: DomSanitizer){}
+ constructor(private apiService:ApiService,private routes:Router,private cloudinaryService:CloudinaryService ){}
    mobileDetails:any
    dressDetail:any
   selectedOption:string='mobile'
@@ -87,7 +89,7 @@ export class AddproductComponent implements OnInit {
      }
    
 addProduct() {
-  this.upload();
+  
    let seller=sessionStorage.getItem('seller') ||''
   if(this.mobileDetails.valid ){  
   let mobileDetail={
@@ -209,83 +211,80 @@ alert('check the field correctly')
 // }
 uploadFilenames:string[]=[];
 
-upload() {
-  this.progress = 0;
+// upload() {
+//   this.progress = 0;
 
-  if (this.selectedFiles) {
-    const file = this.selectedFiles.item(0);
+//   if (this.selectedFiles) {
+//     const file = this.selectedFiles.item(0);
  
-    if (file) {
-      this.currentFile = file;
+//     if (file) {
+//       this.currentFile = file;
 
-      this.apiService.upload1(file).subscribe(
-        (res: any) => {
-          console.log(res.filename);
-          this.responseImgUrl = res.location;
-          if(this.selectedOption=='mobile'){
-            this.addProduct();
-          } 
-          else if(this.selectedOption=='dress'){
-        this.addDressDetail()
-       }
-        },
-        error => {
-          // Handle error if any
-          console.error('Error uploading file:', error);
-        }
+//       this.apiService.upload1(file).subscribe(
+//         (res: any) => {
+//           console.log(res.filename);
+//           this.responseImgUrl = res.location;
+//           if(this.selectedOption=='mobile'){
+//             this.addProduct();
+//           } 
+//           else if(this.selectedOption=='dress'){
+//         this.addDressDetail()
+//        }
+//         },
+//         error => {
+//           // Handle error if any
+//           console.error('Error uploading file:', error);
+//         }
      
-      );
-    }
+//       );
+//     }
 
-    this.selectedFiles = undefined;
+//     this.selectedFiles = undefined;
+//   }
+// }
+upload() {
+  const file = this.selectedFiles;
+  if (file) {
+    this.cloudinaryService.uploadImage(file).subscribe(
+      (response :any) => {
+        this.responseImgUrl = response.secure_url;
+        console.log('Uploaded Image URL:', this.responseImgUrl);
+        if(this.selectedOption=='mobile'){
+                       this.addProduct();
+                 } 
+                   else if(this.selectedOption=='dress'){
+                 this.addDressDetail()
+                 }
+      },
+      (error:any) => {
+        console.error('Image upload failed:', error);
+      }
+    );
   }
-   //   {
-      //   next: (event: any) => {
-      //     if (event.type === HttpEventType.UploadProgress) {
-      //       this.progress = Math.round((100 * event.loaded) / event.total);
-      //     } else if (event instanceof HttpResponse) {
-      //       this.message = event.body.message;
-      //       this.imageInfos = this.apiService.getFiles();
-      //     }
-      //   },
-      //   error: (err: any) => {
-      //     console.log(err);
-      //     this.progress = 0;
+} 
 
-      //     if (err.error && err.error.message) {
-      //       this.message = err.error.message;
-      //     } else {
-      //       this.message = 'Could not upload the image!';
-      //     }
-
-      //     this.currentFile = undefined;
-      //   },
-      // }
-}
 selectFile(event: any): void {
-  this.message = '';
-  this.preview = '';
-  this.progress = 0;
-  this.selectedFiles = event.target.files;
+  
+  this.selectedFiles = event.target.files[0];
 
-  if (this.selectedFiles) {
-    const file: File | null = this.selectedFiles.item(0);
+  // if (this.selectedFiles) {
+  //   const file: File | null = this.selectedFiles.item[0];
 
-    if (file) {
-      this.preview = '';
-      this.currentFile = file;
+  //   if (file) {
+  //     this.preview = '';
+  //     this.currentFile = file;
 
-      const reader = new FileReader();
+  //     const reader = new FileReader();
 
-      reader.onload = (e: any) => {
-        console.log(e.target.result);
-        this.preview = e.target.result;
-      };
+  //     reader.onload = (e: any) => {
+  //       console.log(e.target.result);
+  //       this.preview = e.target.result;
+  //     };
 
-      reader.readAsDataURL(this.currentFile);
+  //     reader.readAsDataURL(this.currentFile);
      
-    }
-  }
+  //   }
+  // }
 }
 
 }

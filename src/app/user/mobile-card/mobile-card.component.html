@@ -1,0 +1,38 @@
+<div class="row mt-3">
+    <div class="col-12 col-sm-6 col-md-4 col-lg-3 mb-4" *ngFor="let approved of this.approvedProductMobileLists">
+      <div class="card">
+        <a (click)="viewMobileProduct(approved.id)">
+            <div class="d-flex justify-content-center align-item-center m-2">
+          <img [src]="approved.mobileImage" class="card-img-top rounded-4" alt="{{approved.selectProduct}}">
+        </div>
+          <div class="card-body">
+            <h3 class="card-title fw-bold">{{approved.selectProduct}}</h3>
+            <div class="star-rating">
+                <span *ngFor="let star of [1, 2, 3, 4, 5]" 
+                      [class.filled]="star <= 3">
+                  ★
+                </span>
+              </div>
+            <h4 class="fw-bolder">{{approved.mobileModel}}</h4>
+            <p class="card-text">
+              ({{approved.mobileColor}}, {{approved.mobileRam}} RAM, {{approved.mobileStorage}} Storage) |
+              {{approved.mobileBattery}} battery, {{approved.processor}}
+            </p>
+            <div class="row">
+                <div class="text-danger col h5">(-55%)</div>
+          <div class="card-text fw-bold col">₹{{approved.mobilePrize}}</div>
+        </div>
+          </div>
+        </a>
+        <!-- <div class="card-footer">
+          <div class="d-flex justify-content-between align-items-center">
+            <div>
+              <label for="quantity-{{approved.id}}">Choose Quantity</label>
+              <input type="number" class="form-control" [(ngModel)]="quantity" id="quantity-{{approved.id}}">
+            </div>
+             <button class="btn btn-primary" (click)="addCart(approved)">Add to Cart</button> 
+          </div>
+        </div> -->
+      </div>
+    </div>
+  </div>

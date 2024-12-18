@@ -22,6 +22,7 @@ import { TranscationComponent } from './Admin/transcation/transcation.component'
 import { ViewDressproductComponent } from './user/view-dressproduct/view-dressproduct.component';
 import { RejectedProductsComponent } from './Admin/rejected-products/rejected-products.component';
 import { AddCartComponent } from './user/add-cart/add-cart.component';
+import { CarouselComponent } from './user/carousel/carousel.component';
 
 
 
@@ -47,7 +48,8 @@ const routes: Routes = [
   {path:'transcation',component:TranscationComponent},
   {path:'viewDressProduct',component:ViewDressproductComponent},
   {path:'rejectedProducts',component:RejectedProductsComponent},
-  {path:'addCart',component:AddCartComponent}
+  {path:'addCart',component:AddCartComponent},
+  {path:'carousel',component:CarouselComponent}
 
 
 ];

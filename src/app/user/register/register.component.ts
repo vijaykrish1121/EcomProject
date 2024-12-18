@@ -20,6 +20,8 @@ export class RegisterComponent implements OnInit {
        isFormSubmitted : boolean = false;
     ngOnInit(): void {
       this.userDetails=this.getUserDetails();
+      console.log(this.userDetails);
+      
     }
        getUserDetails(){
         return new FormGroup({

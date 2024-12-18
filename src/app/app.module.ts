@@ -38,6 +38,9 @@ import { ViewDressproductComponent } from './user/view-dressproduct/view-dresspr
 import { RejectedProductsComponent } from './Admin/rejected-products/rejected-products.component';
 import { AddCartComponent } from './user/add-cart/add-cart.component';
 import { SellerNavbarComponent } from './Seller/seller-navbar/seller-navbar.component';
+import { CarouselComponent } from "./user/carousel/carousel.component";
+import { MobileCardComponent } from "./user/mobile-card/mobile-card.component";
+import { DressCardComponent } from "./user/dress-card/dress-card.component";
 
 
 @NgModule({
@@ -70,6 +73,7 @@ import { SellerNavbarComponent } from './Seller/seller-navbar/seller-navbar.comp
      RejectedProductsComponent,
      AddCartComponent,
      SellerNavbarComponent,
+     
     
   ],
   imports: [
@@ -84,9 +88,10 @@ import { SellerNavbarComponent } from './Seller/seller-navbar/seller-navbar.comp
     MatFormFieldModule,
     ReactiveFormsModule,
     MatSelectModule,
-
-    
-  ],
+    CarouselComponent,
+    MobileCardComponent,
+    DressCardComponent
+],
   providers: [],
   bootstrap: [AppComponent]
 })

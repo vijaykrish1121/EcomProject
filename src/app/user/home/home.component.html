@@ -1,59 +1,14 @@
-<div class="d-grid" id="background">
 <header id="header">
     <app-nav-bar></app-nav-bar>
+    <div id="carousel" >
+    <app-carousel></app-carousel> 
+    </div>
 </header>
  <div class="container-fluid" >
-  <div class="rounded">
-    <ngb-carousel *ngIf="showCarousel" #carousel [interval]="5000" >
-        <ng-template ngbSlide>
-          <div style="height: auto;" ><img src="./assets/images/slides/slide3.jpg" alt="" class="" width="100%">
-          </div>
-        </ng-template>
-        <ng-template ngbSlide>
-          <div   style="height: auto;" ><img src="./assets/images/slides/slide2.jpg" alt="" class="" width="100%" >
-          </div>
-        </ng-template>
-      </ngb-carousel>
-    </div>
     <div class="container-fluid">
    <div class="container-fluid">
-    <div class="row row-cols-2 row-cols-md-4 mt-3">
-        <div class="col mb-4"  *ngFor="let approved of this.approvedProductMobileLists">
-            <div class="card h-100"> 
-              <a (click)="viewMobileProduct(approved.id)">
-                <img [src]="approved.mobileImage" class="card-img-top">
-                            <div class="card-body">
-                  <h3 class="card-title fw-bold">{{approved.selectProduct}}</h3>
-                  <h4 class="fw-bolder">{{approved.mobileModel}}</h4>
-                  <p class="card-text">({{approved.mobileColor}},{{approved.mobileRam}}Ram,{{approved.mobileStorage}}Storage)|{{approved.mobileBattery}}battery,{{approved.processor}}</p>
-                  <p class="card-text fw-bold">₹{{approved.mobilePrize}}</p>
-            </div>
-          </a>
-          <p>choose Quantity  <input type="number" class="form-control"  [(ngModel)]="quantity"></p>
-          <h3><button (click)="addCart(approved)">Add to Cart</button></h3>
-        </div>
-      
-    </div>
-  </div>
-  <div class="row row-cols-2 row-cols-md-4 mt-3">
-    <div class="col mb-4" *ngFor="let approved of this.approvedProductDressLists"  >
-        <div class="card h-100"> 
-          <a (click)="viewDressProduct(approved.id)">
-            <img [src]="approved.dressImage" class="card-img-top">
-            <div class="card-body">
-              <h3 class="card-title fw-bold">{{approved.productName}}</h3>
-              <h4 class="fw-bolder">{{approved.dressSize}}</h4>
-              <p class="card-text">{{approved.dressColor}}</p>
-              <h4 class="fw-bolder">₹{{approved.productPrize}}</h4>
-        </div>
-      </a>
-    </div>
-    
-</div>
-</div>
-</div>
-    </div>
- </div>
+   <app-mobile-card></app-mobile-card>
+   <app-dress-card></app-dress-card>
  <div class="footer">
      <app-footer></app-footer>
     </div>

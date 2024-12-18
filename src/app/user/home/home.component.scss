@@ -1,18 +1,4 @@
-#slider .carousel-item {
-    height: 500px;
-  }
-  
-  .carousel-caption {
-    font-size: 18px;
-  }
-  
-  .carousel-item>img {
-    width: 100%
-  }
- 
- #header{
-  position: relative;
- }
+
 .card-img-top {
   flex-grow: 1;
   object-fit:contain;
@@ -23,10 +9,7 @@
 //  .card:hover{
 //   transform: scale(1.1);
 //  }
- #background{
-
-  background-color: #fef9f8;
- }
+ 
  .card {
   transition: transform .5s;
 
@@ -52,42 +35,21 @@
     }
   }
 }
-
-
-
-  // .card img {
-  //   max-height: 150px;
-  //   object-fit: cover;
-  // }
-
-  // .card-body {
-  //   padding: 20px;
-  //   height: 150px;
-  // }
-//   @media (max-width: 1000px) {
-//     #content {
-//         margin-top: 55px;
-//         z-index: -1;
-//     }
-// }
-// @media (max-width: 1000px) {
-//   .rounded {
-//      position: relative;
-    
-//   }
-// }
-// #mobileCard{
-//   background-color: #C0C0C0;
-// }
-// @media (max-width: 1000px) {
-//   .card {
-//   display: block;
-//   height: auto;
-//   width: 100%;
+#header{
+  background-color: #0dcaf0;
+}
+@media  (min-width: 601px) and (max-width: 1024px) {
  
-//   }
-// }
+}
+@media  (min-width: 1025px) {
+ #carousel{
+  margin-top: 75px;
+  margin-left: 30px;
 
+ }
+  
+  
+}
 
   
  
